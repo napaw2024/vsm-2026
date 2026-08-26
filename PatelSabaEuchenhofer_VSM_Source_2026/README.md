@@ -3,15 +3,6 @@
 A single-page scrollytelling site about rising urban temperatures across Europe,
 with Frankfurt as a case study.
 
-## Status
-Vertical slice — sections **1–4** built for review:
-1. Intro / hero
-2. News tiles
-3. Temperature records (chart scene)
-4. Frankfurt (skyline scene)
-
-Sections 5–10 follow after slice sign-off.
-
 ## Structure
 ```
 site/
@@ -23,7 +14,6 @@ site/
 ├── scripts/
 │   └── scroll.js      # Scrollama step controller + reveals + progress
 └── assets/            # image/SVG exports from Figma
-    └── news/          # §2 news tiles
 ```
 
 ## Fonts
@@ -35,16 +25,6 @@ merge into a solid bold grotesque.
 - **Array 700** — inline emphasis
 
 Loaded from the Fontshare CDN in `index.html`.
-
-## Assets note
-`assets/charts/temp-records.svg` was re-layered on import: Figma's SVG export
-painted the pale range-bars *over* the data dots (dots invisible). The 12 range-bar
-rects were moved behind the dots so the chart renders correctly. If you re-export
-this chart, either fix the z-order in Figma or hand off a PNG.
-
-## Pending (sections 5–10)
-Map/diagram scenes will use the same text-free "Designs-without-text" exports in
-`assets/` (thermal maps, isometric factor layers, classification, conclusion charts).
 
 ## Local preview
 Any static server, e.g.:
