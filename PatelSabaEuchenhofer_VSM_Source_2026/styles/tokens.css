@@ -1,0 +1,88 @@
+/* ==========================================================================
+   tokens.css — single source of truth for the design system.
+   Generated directly from the Figma token exports:
+     • colors.tokens.json   (palette)
+     • text.tokens.json     (type scale)
+   Build is PIXEL-TIGHT to the Test-file frames, so sizes are in px.
+   Do not add near-duplicate values — extend the scales here.
+   ========================================================================== */
+
+:root {
+  /* ---- Font family ------------------------------------------------------- */
+  --font-array: "Array", "Courier New", monospace;
+
+  /* ---- Font weights ------------------------------------------------------ */
+  /* Token file lists regular/bold; text styles also use a Semibold (Array 600,
+     Fontshare's "Semibold"; Figma reports it as ~500). */
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Font sizes (px) --------------------------------------------------- */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-18: 18px;
+  --fs-28: 28px;
+  --fs-52: 52px;
+  --fs-64: 64px;
+  --fs-150: 150px;
+
+  /* ---- Line heights (px) ------------------------------------------------- */
+  --lh-18: 18px;
+  --lh-27: 27px;
+  --lh-32: 32px;
+  --lh-57: 57px;
+  --lh-59: 59px;
+  --lh-64: 64px;
+  --lh-145: 145px;
+
+  --ls-0: 0;
+
+  /* ---- Palette: Primary -------------------------------------------------- */
+  --c-primary-01: #db3029;
+  --c-primary-02: #510b01;
+  --c-primary-03: #da6961;
+
+  /* ---- Palette: Background ---------------------------------------------- */
+  --c-bg-dark: #ebe9f3;      /* lavender          */
+  --c-bg-light: #f1f1f1;     /* default page bg   */
+  --c-panel: #000000;        /* black text panels */
+
+  /* ---- Palette: Text ----------------------------------------------------- */
+  --c-text: #000000;         /* Text/Default              */
+  --c-text-highlight: #ffffff; /* Text/Highlight (white title-box marker) */
+  --c-text-secondary: #8f99a1; /* Text/Secondary            */
+
+  /* ---- DataViz: diverging (hot → cold) ---------------------------------- */
+  --c-div-10: #d7382f;
+  --c-div-20: #fdc0b5;
+  --c-div-40: #e9c8d1;
+  --c-div-60: #d0d7fb;
+  --c-div-80: #9cb1f5;
+  --c-div-90: #5d8def;
+
+  /* ---- DataViz: sequential (light → dark) ------------------------------- */
+  --c-seq-10: #ffc6b7;
+  --c-seq-20: #faac99;
+  --c-seq-40: #f3927c;
+  --c-seq-60: #eb7761;
+  --c-seq-80: #e25a47;
+  --c-seq-90: #d7382f;
+
+  /* ---- DataViz: categorical --------------------------------------------- */
+  --c-cat-01: #d7382f;
+  --c-cat-02: #aae821;
+  --c-cat-03: #f4683d;
+  --c-cat-04: #f5cd9c;
+  --c-cat-05: #4269d0;
+  --c-cat-06: #bd58d4;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 0.6s;
+  --dur-fast: 0.35s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0.001s; --dur-fast: 0.001s; }
+}

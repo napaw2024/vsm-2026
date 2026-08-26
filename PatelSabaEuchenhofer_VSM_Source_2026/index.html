@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cities are losing their cool — a scrollytelling look at rising urban temperatures across Europe, with Frankfurt as a case study.">
+  <title>Cities are losing their cool</title>
+
+  <!-- Social sharing (set og:url + an absolute og:image once the site is deployed) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cities are losing their cool">
+  <meta property="og:description" content="Rising urban heat across Europe, told through Frankfurt: how the city heats up by day, never cools at night, and where its last coldspots are disappearing.">
+  <meta property="og:image" content="assets/section-1/hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cities are losing their cool">
+  <meta name="twitter:description" content="Rising urban heat across Europe, told through Frankfurt: how the city heats up by day, never cools at night, and where its last coldspots are disappearing.">
+  <meta name="theme-color" content="#f7f5fa">
+
+  <!-- Favicon: the conclusion bar (hot → cold) as a tiny inline SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='20' height='32' fill='%23d7382f'/><rect x='20' width='8' height='32' fill='%23e9c8d1'/><rect x='28' width='4' height='32' fill='%235d8def'/></svg>">
+
+  <!-- Font: Array (Fontshare) — regular 400 + semibold 600 + bold 700 -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=array@400,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/sections.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main">
+
+    <!-- ================================================================= -->
+    <!-- §1 — Intro / hero  (Figma 17:333191)                              -->
+    <!-- ================================================================= -->
+    <section class="frame frame--fill" id="intro" aria-label="Introduction">
+      <div class="stage">
+        <img class="hero__bg" src="assets/section-1/hero-bg.jpg" alt="" role="presentation" fetchpriority="high" decoding="async">
+        <h1 class="hero__title">Cities are losing their cool.</h1>
+        <a class="hero__cta" href="#news" aria-label="Scroll to follow the heat">
+          <span class="hero__cta-pill">Scroll to follow the heat</span>
+          <span class="hero__cta-tab"><span class="hero__cta-chevron" aria-hidden="true"></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §2 — News  (Figma 17:333193)                                      -->
+    <!-- ================================================================= -->
+    <section class="news" id="news" aria-label="Recent European heatwave news coverage">
+      <div class="news__row" role="list">
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-1.png?v=2" alt="News tile: 'Europe Suffers Under Rare Heat Wave', charting average maximum June temperatures for major cities."></div>
+        </figure>
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-2.png?v=2" alt="News tile: 'Europe Boils Under Record Heatwave – Schools Shut & Wildfires Rage!'"></div>
+        </figure>
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-3.png?v=2" alt="News tile: 'Heatwave in Italy and Germany: Traffic lights begin to melt under extreme' heat."></div>
+        </figure>
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-4.png?v=2" alt="News tile: BBC News — 'Berlin police use water cannons to cool people, as temperature in Germany hits all-time high of 41.5C.'"></div>
+        </figure>
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-5.png?v=2" alt="News tile: 'It's not just a heat wave', with a thermal map of the continent."></div>
+        </figure>
+        <figure class="news__cell" role="listitem">
+          <div class="news__tile"><img src="assets/news/container-6.png?v=2" alt="News tile: 'Frankfurt war letzte Nacht heißeste Stadt Deutschlands' (Frankfurt was the hottest city in Germany last night)."></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §3 — Temperature records  (Figma 17:326315 / chart 6:56169)       -->
+    <!-- Chart + white title pinned; black narrative box travels up.       -->
+    <!-- ================================================================= -->
+    <section class="scene3 scroll-scene" id="temp-records" aria-labelledby="s3-title">
+      <div class="scene3__pin">
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="stage s3-stage">
+          <img class="s3-chart" src="assets/section-3/chart.png" alt="" role="presentation">
+
+          <div class="s3-narr narr-box" data-travel="1520" aria-hidden="true">
+            <p class="s3-narr__text">Paris recorded its hottest night in two decades, while Rome, Milan and Florence remain under red heat alerts. Berlin faces an elevated wildfire risk as dry conditions persist. Across the continent, schools have closed, outdoor activities have been restricted, and some cities have temporarily banned public alcohol consumption.</p>
+          </div>
+
+          <div class="s3-title">
+            <h2 class="s3-title__text" id="s3-title">Temperature records are continuing to break across Europe, with higher temperatures to come.</h2>
+          </div>
+        </div>
+      </div>
+      <p class="visually-hidden">
+        Chart: a dot plot of temperature change (2013–2025, °C) for twelve European cities — Madrid, Istanbul,
+        Rome, Milan, Bern, Budapest, Vienna, Paris, Prague, Frankfurt, London and Berlin. Each city shows a
+        vertical spread of yearly points from about −1&deg;C to +3&deg;C; warmer (red) points sit well above the
+        cooler-coloured historical baseline, with the 2025 mean marked as a hatched point. Source: Open-Meteo
+        ERA5 Reanalysis.
+      </p>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §4 — Frankfurt  (Figma 17:326716)                                 -->
+    <!-- 3 skyline images slide in from the left; white title pinned;      -->
+    <!-- black narrative box travels up.                                   -->
+    <!-- ================================================================= -->
+    <section class="scene4 scroll-scene" id="frankfurt" aria-labelledby="s4-title">
+      <div class="scene4__pin">
+        <div class="stage s4-stage">
+          <img class="s4-sky s4-sky--right" src="assets/section-4/sky-right.jpg" alt="" role="presentation">
+          <img class="s4-sky s4-sky--mid" src="assets/section-4/sky-mid.jpg" alt="" role="presentation">
+          <img class="s4-sky s4-sky--left" src="assets/section-4/sky-left.jpg" alt="Aerial view of Frankfurt's mirrored, warped high-rise towers.">
+
+          <div class="s4-narr narr-box" data-travel="1650" aria-hidden="true">
+            <p class="s4-narr__text">As one of Europe's financial hubs, Frankfurt's dense, high-rise infrastructure makes the city especially vulnerable to extreme heat. Combined with a warming climate, this is pushing temperatures to record levels.</p>
+          </div>
+
+          <div class="s4-title">
+            <h2 class="s4-title__text" id="s4-title">Among Europe's hardest-hit cities, Frankfurt illustrates how extreme heat is becoming an urban challenge.</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §5 — Four key factors  (local exports; frame 1920×1080)           -->
+    <!-- Title pinned; 4 isometric layers + label + description reveal one  -->
+    <!-- group per scroll step (LST-Day → LST-Night → PET → Tropical).      -->
+    <!-- ================================================================= -->
+    <section class="scene5 build-scene" id="factors" aria-labelledby="s5-title">
+      <div class="scene5__pin">
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="stage s5-stage">
+          <div class="s5-title">
+            <h2 class="s5-title__text" id="s5-title">Four key factors that turn the city into a heat trap.</h2>
+          </div>
+
+          <!-- isometric layers, painted back → front (top layer on top) -->
+          <img class="s5-layer s5-layer--4" data-appear="0.78" src="assets/section-5/tropical.png" alt="" role="presentation">
+          <img class="s5-layer s5-layer--3" data-appear="0.56" src="assets/section-5/pet.png" alt="" role="presentation">
+          <img class="s5-layer s5-layer--2" data-appear="0.34" src="assets/section-5/lst-night.png" alt="" role="presentation">
+          <img class="s5-layer s5-layer--1" data-appear="0.10" src="assets/section-5/lst-day.png" alt="" role="presentation">
+
+          <!-- labels (left) -->
+          <p class="s5-label s5-label--1" data-appear="0.10">Daytime Land Surface Temperature (LST Day)</p>
+          <p class="s5-label s5-label--2" data-appear="0.34">Nighttime Land Surface Temperature (LST Night)</p>
+          <p class="s5-label s5-label--3" data-appear="0.56">Physiological Equivalent Temperature (PET)</p>
+          <p class="s5-label s5-label--4" data-appear="0.78">Tropical Nights</p>
+
+          <!-- descriptions (right) -->
+          <p class="s5-desc s5-desc--1" data-appear="0.10">The temperature of the surface itself: asphalt and concrete absorb solar radiation and reach temperatures far above the surrounding air.</p>
+          <p class="s5-desc s5-desc--2" data-appear="0.34">How much heat the surface releases after dark. Sealed materials cool slowly, keeping temperatures still elevated during the night.</p>
+          <p class="s5-desc s5-desc--3" data-appear="0.56">A single measure of thermal stress at street level, combining solar radiation, wind, humidity and surface heat into one number.</p>
+          <p class="s5-desc s5-desc--4" data-appear="0.78">Nights where temperatures never drop below 20&deg;C.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §6 — Factors detail  (maps as PNGs; frame 1920×1080)              -->
+    <!-- Title pinned per sub-section; map + legend + black box change per  -->
+    <!-- step (6 steps: LST-Day, LST-Day+river, LST-Night, PET, PET+green,  -->
+    <!-- Tropical).                                                         -->
+    <!-- ================================================================= -->
+    <section class="scene6 map-scene" id="factors-detail" data-steps="6" aria-label="How hot Frankfurt's ground and air get, day and night">
+      <div class="scene6__pin">
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="stage s6-stage">
+
+          <!-- pinned isometric tileset icon (per topic) -->
+          <img class="s6-icon" data-step="0,1" src="assets/section-6/tileset-lst-day.png" alt="" role="presentation">
+          <img class="s6-icon" data-step="2" src="assets/section-6/tileset-lst-night.png" alt="" role="presentation">
+          <img class="s6-icon" data-step="3,4" src="assets/section-6/tileset-pet.png" alt="" role="presentation">
+          <img class="s6-icon" data-step="5" src="assets/section-6/tileset-tropical-nights.png" alt="" role="presentation">
+
+          <!-- pinned titles, one per topic. Each visual line is its own .mk
+               span — box-decoration-break:clone doesn't reliably hug
+               per-line under this site's scaled .stage transform, so lines
+               are split explicitly. Per Figma (LST Day: 729×71, 729×75,
+               435×75), all lines but the last share one column width and
+               only the last hugs its own shorter text — matched at runtime
+               in scroll.js (initTitleLineWidths) rather than hardcoded, so
+               it holds for every title's own text/width. -->
+          <h2 class="s6-title" data-step="0,1"><span class="mk">How hot does the</span><br><span class="mk">ground get during</span><br><span class="mk">the day?</span></h2>
+          <h2 class="s6-title" data-step="2"><span class="mk">How hot is the</span><br><span class="mk">ground during the</span><br><span class="mk">night?</span></h2>
+          <h2 class="s6-title" data-step="3,4"><span class="mk">What temperature</span><br><span class="mk">does your body</span><br><span class="mk">really feel?</span></h2>
+          <h2 class="s6-title" data-step="5"><span class="mk">What happens</span><br><span class="mk">during the night?</span></h2>
+
+          <!-- maps (cross-fade per step) -->
+          <canvas class="s6-map" data-step="0,1" data-var="lst_day" role="img" aria-label="Daytime land-surface-temperature map of Frankfurt: dense urban core runs hottest, green and riverside areas coolest. Hover over the map to see the exact LST Day value at any point in the city."></canvas>
+          <canvas class="s6-map" data-step="2" data-var="lst_night" role="img" aria-label="Night-time land-surface-temperature map of Frankfurt: sealed built-up areas stay warm after dark. Hover over the map to see the exact LST Night value at any point in the city."></canvas>
+          <canvas class="s6-map" data-step="3" data-var="pet" role="img" aria-label="Physiological-equivalent-temperature map of Frankfurt showing felt heat stress. Hover over the map to see the exact PET value at any point in the city."></canvas>
+          <img class="s6-map s6-map--figma-frame" data-step="4" src="assets/section-6/map-pet-green.png?v=2" alt="PET map overlaid with green infrastructure: high green volume aligns with lower felt heat stress." role="img">
+          <img class="s6-map s6-map--tropical" data-step="5" src="assets/section-6/map-tropical.png" alt="Waffle chart: 147 of 153 recent summer nights in the city centre stayed above 20°C." role="img">
+
+          <!-- step accent (palm stays pinned; river + human live inside their boxes) -->
+          <img class="s6-palm" data-step="5" src="assets/section-6/palm-trees.png" alt="" role="presentation">
+
+          <!-- legends (cross-fade per step) -->
+          <img class="s6-legend" data-step="0,1" src="assets/section-6/legend-lst-day.png" alt="" role="presentation">
+          <img class="s6-legend" data-step="2" src="assets/section-6/legend-lst-night.png" alt="" role="presentation">
+          <img class="s6-legend s6-legend--pet s6-legend--pet-only" data-step="3" src="assets/section-6/legend-pet.png" alt="" role="presentation">
+          <img class="s6-legend s6-legend--pet" data-step="4" src="assets/section-6/legend-pet.png" alt="" role="presentation">
+
+          <!-- black narrative boxes (cross-fade + slight travel per step) -->
+          <div class="s6-box" data-step="0"><p>Surfaces drive the urban heat island effect. Dark asphalt, concrete pavements and rooftops absorb solar radiation throughout the day, reaching Lands Surface Temperatures (LST) over <strong>20&deg;C higher</strong> than nearby green spaces. The denser and more sealed the urban fabric, the more intense the heat accumulation.</p></div>
+          <div class="s6-box s6-box--river" data-step="1">
+            <div class="s6-box__text"><p>The Main cuts through the city as a cool thread, but its banks are sealed solid. Without green cover at street level, the river's natural cooling cannot reach beyond its edges.</p></div>
+            <img class="s6-box__river" src="assets/section-6/map-lst-day-river.png" alt="Satellite view of the River Main threading through Frankfurt.">
+          </div>
+          <div class="s6-box" data-step="2"><p>The map shows how surfaces release heat after dark. Though the satellite resolution differs, the pattern holds: sealed materials cool slowly, keeping Land Surface Temperatures (LST) elevated throughout the night.</p></div>
+          <div class="s6-box s6-box--pet" data-step="3">
+            <div class="s6-box__text"><p class="s6-box__head">Heat Stress</p><p>At Physiological Equivalent Temperature (PET) values above <strong>35&deg;C</strong>, the human body struggles to maintain thermal balance. Blood pressure rises, sleep is disrupted and the risk of heat stroke increases sharply, hitting elderly residents and children the hardest.</p></div>
+            <img class="s6-box__human" src="assets/section-6/human-figure.png" alt="" role="presentation">
+          </div>
+          <div class="s6-box" data-step="4"><p>PET is shaped by the urban environment. Where concrete and asphalt dominate, felt heat stress rises sharply. The two maps tell the same story from opposite angles: areas with high green volume consistently show lower PET values, while sealed surfaces with little to no vegetation overlap directly with the most extreme thermal stress zones.</p></div>
+          <div class="s6-box" data-step="5"><p>Green spaces cool cities by day, but that relief weakens after dark. A <strong>TROPICAL NIGHT</strong> occurs when the temperature never drops below 20&deg;C, even at 3am. For the human body, that means nor rest, neither reset before the next day of heat begins again.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §7 — Classification  (build-scene; frame 1920×1080)               -->
+    <!-- 4 isometric composites → bracket-combine into Day/Night           -->
+    <!-- Composites → resolve into the Hotspots & Coldspots classification -->
+    <!-- map + legend. Content accumulates over 3 beats (Variant 6→5→4).   -->
+    <!-- ================================================================= -->
+    <section class="scene7 build-scene" id="classification" aria-labelledby="s7-heading">
+      <div class="scene7__pin">
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="stage s7-stage">
+
+          <!-- beat 2: subtle panel grounding the classification block -->
+          <div class="s7-panel" data-appear="0.66" aria-hidden="true"></div>
+
+          <!-- beat 0: 4 isometric composites + grey labels -->
+          <p class="s7-clabel s7-clabel--day"   data-appear="0.01">Daytime Land Surface Temperature (LST Day)</p>
+          <p class="s7-clabel s7-clabel--pet"   data-appear="0.01">Physiological Equivalent Temperature (PET)</p>
+          <p class="s7-clabel s7-clabel--night" data-appear="0.01">Nighttime Land Surface Temperature (LST Night)</p>
+          <p class="s7-clabel s7-clabel--trop"  data-appear="0.01">Tropical Nights</p>
+
+          <img class="s7-comp s7-comp--day"   data-appear="0.01" src="assets/section-7/lst-day.png" alt="Isometric tile of Frankfurt's daytime land-surface temperature.">
+          <img class="s7-comp s7-comp--pet"   data-appear="0.01" src="assets/section-7/pet.png" alt="Isometric tile of Frankfurt's physiological equivalent temperature.">
+          <img class="s7-comp s7-comp--night" data-appear="0.01" src="assets/section-7/lst-night.png" alt="Isometric tile of Frankfurt's night-time land-surface temperature.">
+          <img class="s7-comp s7-comp--trop"  data-appear="0.01" src="assets/section-7/tropical-nights.png" alt="Isometric tile of Frankfurt's tropical-nights count.">
+
+          <!-- beat 1: combine brackets (dotted) + composite results -->
+          <svg class="s7-brackets" data-appear="0.34" viewBox="0 0 1920 1080" aria-hidden="true">
+            <defs>
+              <marker id="s7-tip-lite" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#b0b4bc" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <g fill="none" stroke="#b0b4bc" stroke-width="1.6" stroke-dasharray="1.5 5" stroke-linecap="round">
+              <path d="M251 427 L251 479 L660 479 L660 427"/>
+              <path d="M456 479 L456 504" marker-end="url(#s7-tip-lite)"/>
+              <path d="M1231 427 L1231 479 L1640 479 L1640 427"/>
+              <path d="M1436 479 L1436 504" marker-end="url(#s7-tip-lite)"/>
+            </g>
+          </svg>
+          <p class="s7-combined s7-combined--day"   data-appear="0.34">combined</p>
+          <p class="s7-combined s7-combined--night" data-appear="0.34">combined</p>
+          <p class="s7-cresult s7-cresult--day"   data-appear="0.34">Day time Composite</p>
+          <p class="s7-cresult s7-cresult--night" data-appear="0.34">Night time Composite</p>
+
+          <!-- beat 2: diagonal connectors + classification map + legend -->
+          <svg class="s7-arrows" data-appear="0.66" viewBox="0 0 1920 1080" aria-hidden="true">
+            <defs>
+              <marker id="s7-tip-dark" markerWidth="10" markerHeight="10" refX="6.5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M1 1 L7.5 5 L1 9" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <g fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-dasharray="1.5 5.5" stroke-linecap="round">
+              <path d="M505 566 L825 702" marker-end="url(#s7-tip-dark)"/>
+              <path d="M1438 566 L1073 702" marker-end="url(#s7-tip-dark)"/>
+            </g>
+          </svg>
+
+          <img class="s7-map" data-appear="0.66" src="assets/section-7/Hotspots-Coldspots.png" alt="Isometric classification grid of Frankfurt: red cells mark hotspots that stay hot day and night, blue cells mark coldspots that stay cool, with mixed day/night categories in between.">
+
+          <h3 class="s7-def-head s7-def-head--hot"  data-appear="0.66">Hotspots</h3>
+          <p  class="s7-def s7-def--hot"  data-appear="0.66">A land area notably warmer than its surroundings, often linked to vegetation loss or urbanization, a target for cooling action.</p>
+          <h3 class="s7-def-head s7-def-head--cold" data-appear="0.66">Coldspots</h3>
+          <p  class="s7-def s7-def--cold" data-appear="0.66">A land area notably cooler than its surroundings, often linked to forests or water bodies, a natural asset worth protecting.</p>
+
+          <h2 class="s7-classbar" id="s7-heading" data-appear="0.66">Classification of Hotspots &amp; Coldspots</h2>
+
+          <img class="s7-legend" data-appear="0.66" src="assets/section-7/legend.png" alt="Legend, six categories: universal hotspot (hot day and night); hot day with cool nights; moderate day with warmer nights; moderate day with cooler nights; cold day with warmer nights; universal coldspot (cold day and night).">
+        </div>
+      </div>
+      <p class="visually-hidden">
+        Classification. The four thermal composites — daytime land-surface temperature, physiological
+        equivalent temperature, night-time land-surface temperature and tropical nights — are combined
+        into a daytime composite and a night-time composite, then cross-classified into a map of Hotspots
+        and Coldspots. Hotspots are areas notably warmer than their surroundings; coldspots are notably
+        cooler. The six-category legend runs from a universal hotspot (hot day and night) through the
+        moderate categories to a universal coldspot (cold day and night).
+      </p>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §8 — Thermal landscape · Part 1 of 3  (map-scene; frame 1920×1080) -->
+    <!-- Pinned title + description + map + legend. 6 steps: the map        -->
+    <!-- cross-fades, the black box travels up, and the legend builds up    -->
+    <!-- one category per step (cold/blue first → hot/red last).            -->
+    <!-- (Figma section-8-thermal-landscape, node 17:328121 et al.)         -->
+    <!-- ================================================================= -->
+    <section class="scene8 thermal-scene" id="thermal-landscape" data-steps="6" data-box-travel="1650" data-split-ab="0.461" data-split-bc="0.671" aria-labelledby="s8-heading">
+      <div class="scene8__pin">
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="stage s8-stage">
+
+          <!-- pinned maps (cross-fade per step); map 6 doubles as the zoom target -->
+          <div class="s8-mapwrap">
+            <img class="s8-map" data-step="0" src="assets/section-8/1.png" alt="Thermal classification map of Frankfurt highlighting the last universal coldspots.">
+            <img class="s8-map" data-step="1" src="assets/section-8/2.png" alt="Thermal map highlighting surfaces that stay cool by day but lose cooling at night.">
+            <img class="s8-map" data-step="2" src="assets/section-8/3.png" alt="Thermal map highlighting moderate-daytime areas that cool efficiently at night.">
+            <img class="s8-map" data-step="3" src="assets/section-8/4.png" alt="Thermal map highlighting transitional urban fabric, neither hotspot nor coldspot.">
+            <img class="s8-map" data-step="4" src="assets/section-8/5.png" alt="Thermal map highlighting surfaces that overheat by day but cool at night.">
+            <img class="s8-map s8-map--zoom" data-step="5" src="assets/section-8/6.png?v=2" alt="Thermal map highlighting the universal hotspots that stay hot day and night."
+                 data-pan-map
+                 data-k0-scale="1.008" data-k0-x="434"  data-k0-y="52"
+                 data-ka-scale="2.5"   data-ka-x="235"  data-ka-y="-390"
+                 data-kb-scale="2.5"   data-kb-x="-275" data-kb-y="-995"
+                 data-kc-scale="1.05"  data-kc-x="877"  data-kc-y="-8"
+                 data-kd-scale="1.06"  data-kd-x="629"  data-kd-y="21">
+            <!-- finale map: only the rare blue coldspots on white (map 3), cross-faded in -->
+            <img class="s8-map s8-map--finale" src="assets/section-8/3.png" alt="Map of Frankfurt showing only the rare blue coldspot pixels on white — nearly the whole city is a hotspot.">
+          </div>
+
+          <!-- pinned title (per-line white .mk highlight) + description -->
+          <h2 class="s8-title" id="s8-heading"><span class="mk">Frankfurt&rsquo;s thermal landscape</span></h2>
+          <p class="s8-desc">Measured across a ten-year average (2013&ndash;2022) at 100&nbsp;m resolution, the combined map shows areas that heat up and stay hot from those that are cold and&nbsp;/&nbsp;or cool down after dark.</p>
+
+          <!-- legend (coded) — builds up cold/blue (bottom) → hot/red (top) -->
+          <div class="s8-legend" aria-hidden="true">
+            <div class="s8-legend-row" data-step="5"><span class="s8-legend-sw s8-sw--1"></span><span class="s8-legend-label">Universal Hotspot: Hot temperatures during day &amp; night</span></div>
+            <div class="s8-legend-row" data-step="4,5"><span class="s8-legend-sw s8-sw--2"></span><span class="s8-legend-label">Hot during the day with cool nights</span></div>
+            <div class="s8-legend-row" data-step="3,4,5"><span class="s8-legend-sw s8-sw--3"></span><span class="s8-legend-label">Moderate temperature during day with warmer nights</span></div>
+            <div class="s8-legend-row" data-step="2,3,4,5"><span class="s8-legend-sw s8-sw--4"></span><span class="s8-legend-label">Moderate temperature during the day with cooler nights</span></div>
+            <div class="s8-legend-row" data-step="1,2,3,4,5"><span class="s8-legend-sw s8-sw--5"></span><span class="s8-legend-label">Cold during the day with warmer nights</span></div>
+            <div class="s8-legend-row" data-step="0,1,2,3,4,5"><span class="s8-legend-sw s8-sw--6"></span><span class="s8-legend-label">Universal Coldspot: Cold temperatures during day &amp; night</span></div>
+          </div>
+
+          <!-- black narrative boxes — centred over the map, travel per step -->
+          <div class="s8-box" data-step="0"><p>Universal coldspots no longer exist in Frankfurt, it has been entirely lost to urban development.</p></div>
+          <div class="s8-box" data-step="1"><p>The rarest surviving coldspot in Frankfurt. Surfaces that stay measurably cool during the day but lose their cooling capacity at night. Almost exclusively found in the green corridors of the city.</p></div>
+          <div class="s8-box" data-step="2"><p>Moderate daytime temperatures with efficient nocturnal cooling. Mixed surfaces (parks, gardens, low-density residential areas) where the city still breathes after sunset.</p></div>
+          <div class="s8-box" data-step="3"><p>Neither extreme hotspot nor coldspot &mdash; transitional urban fabric that absorbs heat moderately during the day and releases it slowly at night.</p></div>
+          <div class="s8-box" data-step="4"><p>Surfaces that overheat intensely during the day but cool down at night. Typically commercial or industrial zones with high solar absorption but enough airflow and spacing between buildings to allow nocturnal heat release.</p></div>
+          <div class="s8-box" data-step="5"><p>The most thermally stressed category. Dense sealed surfaces that accumulate heat during the day and never fully release it at night. Exactly where the city burns.</p></div>
+
+          <!-- ===== Zoom phase — beat 0: Inner City (hottest) ===== -->
+          <svg class="s8b-line" data-beat="0" viewBox="0 0 1920 1080" aria-hidden="true">
+            <line x1="1540" y1="675" x2="720" y2="352" stroke="#000" stroke-width="2"/>
+          </svg>
+          <div class="s8b-marker s8b-marker--hot" data-beat="0" aria-hidden="true"><span class="s8b-marker__dot"></span></div>
+          <div class="s8b-callout s8b-callout--hot" data-beat="0">
+            <div class="s8b-callout__head"><span class="s8b-callout__title">Inner City</span><span class="s8b-callout__tag">[Hottest Spot]</span></div>
+            <div class="s8b-callout__body"><p>Glass towers, sealed plazas and almost no street-level greenery turn Frankfurt&rsquo;s financial district into a heat trap: surface temperatures above 38&deg;C by day and more than 140 tropical nights a year that never let the heat go.</p></div>
+            <img class="s8b-callout__photo" src="assets/section-8/circular-image-1.png" alt="Aerial photo of Frankfurt's financial district: dense glass towers and sealed plazas.">
+          </div>
+
+          <!-- ===== Zoom phase — beat 1: Sachsenhausen-Süd (coldest) ===== -->
+          <svg class="s8b-line" data-beat="1" viewBox="0 0 1920 1080" aria-hidden="true">
+            <line x1="1450" y1="830" x2="1352" y2="620" stroke="#000" stroke-width="2"/>
+          </svg>
+          <div class="s8b-marker s8b-marker--cold" data-beat="1" aria-hidden="true"><span class="s8b-marker__dot"></span></div>
+          <div class="s8b-callout s8b-callout--cold" data-beat="1">
+            <div class="s8b-callout__head"><span class="s8b-callout__title">Sachsenhausen-Süd</span><span class="s8b-callout__tag">[Coldest Spot]</span></div>
+            <div class="s8b-callout__body"><p>On the southern edge of the city, the green corridor offers a different thermal experience. Dense tree canopy and almost none population density combine to keep surface temperatures noticeably lower, both day and night.</p></div>
+          </div>
+          <img class="s8b-photo s8b-photo--cold" data-beat="1" src="assets/section-8/circular-image-2.png" alt="Aerial photo of the green corridor on Frankfurt's southern edge: dense tree canopy.">
+
+          <!-- ===== Phase C — Part 3: the numbers behind the difference, then the finale ===== -->
+          <h2 class="s8c-title"><span class="mk">The numbers behind the difference.</span></h2>
+          <img class="s8c-chart" src="assets/section-8/bar-chart.png" alt="Comparison charts. Temperature in °C — LST Day: 25.1 (coldspot) vs 38.1 (hotspot); LST Night: 13.8 vs 16.5; PET: 23.2 vs 43.9; dashed city averages 31.6, 14.4 and 35.9. Tropical nights per year: 22 (coldspot) vs 147 (hotspot), city average about 40.">
+          <div class="s8c-box1"><p>Across every thermal variable, the gap between Frankfurt&rsquo;s two extremes is striking. The City Center reaches a felt temperature of 43.9&deg;C and endures 147 tropical nights a year, while the coldspot in Sachsenhausen-Süd peaks at 23.2&deg;C PET and only 22 tropical nights. The dashed line shows where Frankfurt&rsquo;s average sits: closer to the hot end than the cool one.</p></div>
+          <div class="s8c-box2"><p>Frankfurt&rsquo;s thermal data makes the urgency visible: the scarcity of blue pixels on the map is not just a statistical observation, it is a <strong>WARNING!</strong></p></div>
+        </div>
+      </div>
+      <p class="visually-hidden">
+        Frankfurt's thermal landscape, a ten-year average (2013–2022) at 100&nbsp;m resolution. A single
+        combined map is read in six passes, from the coolest category to the hottest. Universal coldspots
+        (cool day and night) have been entirely lost to urban development. The surviving cool categories —
+        cold days with warmer nights, and moderate days that still cool efficiently after dark — are almost
+        all in the city's green corridors. Transitional fabric absorbs heat moderately and releases it
+        slowly. At the hot end, surfaces that overheat by day but cool at night give way to universal
+        hotspots: dense sealed surfaces that stay hot day and night — exactly where the city burns.
+        The map then zooms to the two extremes: the Inner City financial district, the hottest spot, with
+        surface temperatures above 38&deg;C by day and more than 140 tropical nights a year; and
+        Sachsenhausen-Süd on the southern edge, the coldest spot, a green corridor of dense tree canopy and
+        almost no population density that stays noticeably cooler day and night.
+      </p>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §9 — Conclusion  (reveal-scene; full-viewport frame 1922×1088)     -->
+    <!-- One full-width proportional bar = % of urban area per thermal      -->
+    <!-- class. Rectangles slide in from the left (like §4), staggered;     -->
+    <!-- then the black box arrives. All coded — no PNGs.                    -->
+    <!-- (Figma section-9-conclusion, node 17:333179)                       -->
+    <!-- ================================================================= -->
+    <section class="scene9 scroll-scene" id="conclusion" aria-labelledby="s9-title">
+      <div class="scene9__pin">
+        <div class="stage s9-stage">
+
+          <!-- proportional bar: 1st strip = default bg (blends), then hot → cold -->
+          <div class="s9-bar" aria-hidden="true">
+            <div class="s9-seg s9-seg--1"><span class="s9-pct">39.4%</span></div>
+            <div class="s9-seg s9-seg--2"><span class="s9-pct">7.4%</span></div>
+            <div class="s9-seg s9-seg--3"><span class="s9-pct">43.7%</span></div>
+            <div class="s9-seg s9-seg--4"><span class="s9-pct">8.4%</span></div>
+            <div class="s9-seg s9-seg--5"></div>
+          </div>
+
+          <!-- 1.2% is too thin for an inline label → callout above the sliver -->
+          <p class="s9-callout-label" aria-hidden="true">1.2%</p>
+          <svg class="s9-callout-line" viewBox="0 0 1922 1088" aria-hidden="true">
+            <line x1="1858" y1="912" x2="1914" y2="1082" stroke="#fff" stroke-width="1.5"/>
+          </svg>
+
+          <!-- rotated y-axis label -->
+          <p class="s9-ylabel">% of total urban area per thermal class</p>
+
+          <!-- title + subtitle (black, on the default-bg strip) -->
+          <h2 class="s9-title" id="s9-title">Frankfurt is losing its cool</h2>
+          <p class="s9-sub">&hellip; and it&rsquo;s not alone. Coldspots are vanishing across major European cities.</p>
+
+          <!-- conclusion black box — travels up on scroll (from bottom, exits top) -->
+          <div class="s9-box narr-box" data-travel="1600" aria-hidden="true"><p>Once a coldspot is sealed (paved over, built upon or stripped of its vegetation) it does not recover on a human timescale. Yet urban development pressure consistently targets these zones. Without political will and explicit protection in city planning frameworks, coldspots will continue to shrink as cities grow.</p></div>
+        </div>
+      </div>
+      <p class="visually-hidden">
+        Conclusion: Frankfurt is losing its cool — and it is not alone; coldspots are vanishing across major
+        European cities. By share of total urban area per thermal class: 39.4% is a universal hotspot and 7.4%
+        is hot by day, 43.7% is moderate with warmer nights, only 8.4% stays cool, and just 1.2% is a universal
+        coldspot. Once a coldspot is sealed — paved over, built upon or stripped of its vegetation — it does not
+        recover on a human timescale, yet urban development consistently targets these zones. Without political
+        will and explicit protection in city planning, coldspots will keep shrinking as cities grow.
+      </p>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- §10 — Data sources / credits  (reveal-scene; frame 1920×1290)      -->
+    <!-- Purple gradient background (CSS) + coded text. Final section.      -->
+    <!-- (Figma section-10-data-sources/master, node 17:333180)             -->
+    <!-- ================================================================= -->
+    <section class="scene10 frame reveal-scene" id="data-sources" aria-labelledby="s10-h1">
+      <div class="stage s10-stage">
+
+        <div class="s10-card" aria-hidden="true"></div>
+        <h2 class="s10-h1" id="s10-h1">Data Sources</h2>
+        <div class="s10-sources">
+          <p class="s10-src"><strong>Thermal &amp; Classification Data</strong>&ensp;Klimaatlas Hessen &ndash; KIT (Karlsruhe Institute of Technology) &amp; Hessian Ministry for the Environment, Climate Protection, Agriculture and Consumer Protection (HMUELV) &middot; LST, PET, Tropical Nights, Hot &amp; Coldspot classification &middot; 100&thinsp;m grid &middot; 2013&ndash;2022 &middot; <a class="s10-link" href="https://geodatendienste-umweltplanung-hessen.de" target="_blank" rel="noopener">geodatendienste-umweltplanung-hessen.de</a></p>
+          <p class="s10-src"><strong>Green Infrastructure</strong>&ensp;Blau-Grüne Indikatoren Hessen &ndash; Klimaatlas Hessen WFS &middot; Green volume per 100&thinsp;m&sup2; pixel</p>
+          <p class="s10-src"><strong>Administrative Boundaries</strong>&ensp;Gemeindegrenzen Hessen &ndash; Klimaatlas Hessen WFS &middot; Municipal boundaries</p>
+          <p class="s10-src"><strong>Satellite Imagery</strong>&ensp;Landsat 8/9 &ndash; USGS / NASA &middot; Sentinel-2 &ndash; ESA Copernicus</p>
+        </div>
+
+        <h2 class="s10-h2">Credits</h2>
+        <p class="s10-credits">Shashank Patel, Julia Sabá, Mona Euchenhofer</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="scripts/scroll.js"></script>
+</body>
+</html>

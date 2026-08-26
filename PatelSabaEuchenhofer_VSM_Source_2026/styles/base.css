@@ -1,0 +1,87 @@
+/* ==========================================================================
+   base.css — reset, fonts, and the pixel-tight "stage" system.
+
+   PIXEL-TIGHT MODEL
+   Each section is authored at the Figma frame's native size (1923 × 1061) with
+   exact px positions/sizes copied from Dev Mode. The whole `.stage` is then
+   uniformly scaled to fit the viewport (contain, centred) — so it never
+   reflows, it scales, matching the frame at any size.
+   ========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-array);
+  font-weight: var(--fw-regular);
+  color: var(--c-text);
+  background: #f7f5fa;   /* matches the light section frames (avoids seams) */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, figure { margin: 0; }
+
+/* brand text selection */
+::selection { background: var(--c-primary-01); color: #fff; }
+img, svg, picture { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+/* ---- Design-frame constants --------------------------------------------- */
+:root {
+  --frame-w: 1923;
+  --frame-h: 1061;
+  /* uniform scale that fits the frame inside the viewport (contain) */
+  --stage-scale: min(calc(100vw / (var(--frame-w) * 1px)),
+                     calc(100vh / (var(--frame-h) * 1px)));
+}
+
+/* ---- Section = one full-viewport stage ---------------------------------- */
+.frame {
+  position: relative;
+  height: 100vh;
+  min-height: 540px;
+  overflow: hidden;
+  background: var(--frame-bg, var(--c-bg-light));
+}
+
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--frame-w) * 1px);
+  height: calc(var(--frame-h) * 1px);
+  transform: translate(-50%, -50%) scale(var(--stage-scale));
+  transform-origin: center center;
+}
+
+/* Full-bleed sections (e.g. the hero) scale to COVER the viewport instead of
+   contain — the frame fills edge-to-edge; only empty margin is cropped. */
+.frame--fill .stage {
+  transform: translate(-50%, -50%)
+             scale(max(calc(100vw / (var(--frame-w) * 1px)),
+                       calc(100vh / (var(--frame-h) * 1px))));
+}
+
+/* Absolutely-placed stage children use exact design px (see sections.css). */
+.stage__layer { position: absolute; inset: 0; }
+
+/* ---- Accessibility ------------------------------------------------------ */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 999;
+  padding: 0.75rem 1rem; background: var(--c-panel); color: #fff;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+:focus-visible { outline: 3px solid var(--c-div-90); outline-offset: 3px; }
