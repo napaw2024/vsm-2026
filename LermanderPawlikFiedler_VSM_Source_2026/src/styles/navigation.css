@@ -1,0 +1,383 @@
+.main-nav {
+  position: fixed;
+  top: 10px;
+  left: calc(50% + var(--side-nav-width) / 2);
+  z-index: 100;
+  display: flex;
+  gap: var(--main-nav-gap);
+  opacity: var(--nav-reveal, 0);
+  pointer-events: none;
+  transform: translateX(-50%) translateY(calc((1 - var(--nav-reveal, 0)) * -16px));
+  transition: opacity 100ms linear;
+}
+
+/* The chapter nav belongs to the scrolling story - hide it while the
+   About/References/Sources overlay (see info-pages.js) is open. */
+body.has-info-overlay-open .main-nav {
+  display: none;
+}
+
+/* Side navigation: one stable vertical flow on desktop and mobile. */
+.side-nav {
+  padding: 14px 0 16px;
+  gap: 18px;
+  overflow: visible;
+  justify-content: flex-start;
+}
+
+.side-nav__logo {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 18px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0;
+  padding-top: 6px;
+  overflow: visible;
+  line-height: 0;
+  order: 0;
+  transform: none;
+}
+
+.side-nav__logo-image {
+  display: block;
+  width: 38px;
+  height: auto;
+  aspect-ratio: 669 / 365;
+  flex: none;
+  object-fit: contain;
+  transform: translateX(4px);
+  transition: opacity 180ms ease;
+}
+
+.side-nav__links {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  order: 1;
+}
+
+.main-nav.is-visible,
+.main-nav:focus-within {
+  pointer-events: auto;
+}
+
+.main-nav__item {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  width: var(--main-nav-item-width);
+  height: var(--main-nav-height);
+  overflow: hidden;
+  color: var(--color-text-navi);
+  background: var(--color-nav-surface);
+  font-size: 1rem;
+  font-weight: 400;
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+.main-nav__item:is(.is-active, :hover, :focus-visible) {
+  color: var(--color-text-navi-chosen);
+  background: var(--color-nav-chosen);
+  font-weight: 600;
+}
+
+.main-nav__number,
+.main-nav__label {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__number {
+  justify-content: center;
+  padding: 14px;
+}
+
+.main-nav__label {
+  padding: 0 14px 0 0;
+  white-space: nowrap;
+}
+
+.side-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 110;
+  display: flex;
+  width: var(--side-nav-width);
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-side-nav-text);
+  background: var(--color-background);
+  border-right: 1px solid var(--color-side-nav-stroke);
+  transition: opacity 400ms ease, color 250ms ease, background-color 250ms ease;
+}
+
+.side-nav--delayed {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.side-nav__link {
+  padding: 10px 8px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 1rem;
+  font-weight: 400;
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+.side-nav__link--brand {
+  font-family: var(--font-brand-flor);
+}
+
+.side-nav__link:is(:hover, :focus-visible, .is-active) {
+  color: var(--color-side-nav-hover);
+  background: transparent;
+  font-weight: 600;
+}
+
+.sound-control {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sound-control__button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  place-items: center;
+  color: var(--color-side-nav-text);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color 250ms ease;
+}
+
+.sound-control__button::before {
+  width: 24px;
+  height: 24px;
+  content: '';
+  background: currentColor;
+  -webkit-mask: url('/media/sound_off.svg') center / contain no-repeat;
+  mask: url('/media/sound_off.svg') center / contain no-repeat;
+}
+
+.sound-control__button.is-enabled::before {
+  -webkit-mask-image: url('/media/sound_on.svg');
+  mask-image: url('/media/sound_on.svg');
+}
+
+.sound-control__button:is(:hover, :focus-visible) {
+  color: var(--color-side-nav-hover);
+}
+
+.sound-control__button img {
+  display: none;
+}
+
+.sound-control__hint {
+  position: absolute;
+  bottom: 0;
+  left: calc(100% + 18px);
+  width: 220px;
+  margin: 0;
+  padding: 12px 14px;
+  color: var(--color-text);
+  background: var(--color-layout-panel);
+  border: 1px solid var(--color-mesh);
+  box-sizing: border-box;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.sound-control__hint.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Navigation fit: reduce only the gap while full labels remain visible. */
+@media (max-width: 1350px) {
+  .main-nav {
+    gap: 5px;
+  }
+}
+
+/* Navigation fit: use the available viewport width. */
+@media (max-width: 1100px) {
+  .main-nav {
+    right: 0;
+    left: var(--side-nav-width);
+    transform: translateY(calc((1 - var(--nav-reveal, 0)) * -16px));
+  }
+}
+
+/* Column/mobile navigation: compact labels and collapsible side navigation. */
+@media (max-width: 900px) {
+  :root,
+  [data-theme] {
+    --side-nav-width: var(--side-nav-collapsed-width);
+  }
+
+  .side-nav {
+    width: var(--side-nav-width);
+    padding: 10px 0 14px;
+    gap: 14px;
+    overflow: visible;
+    background: transparent;
+    border-right-color: transparent;
+    transition:
+      width 250ms ease,
+      opacity 400ms ease,
+      color 250ms ease,
+      background-color 250ms ease,
+      border-color 250ms ease;
+  }
+
+  .side-nav.is-open {
+    width: var(--side-nav-open-width);
+    background: var(--color-background);
+    border-right-color: var(--color-side-nav-stroke);
+  }
+
+  .side-nav__links {
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+
+  .side-nav.is-open .side-nav__links {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 100ms;
+  }
+
+  #main-content {
+    width: 100%;
+    margin-left: 0;
+    transition: width 250ms ease, margin-left 250ms ease;
+  }
+
+  .site-shell:has(.side-nav.is-open) #main-content {
+    width: calc(100% - var(--side-nav-open-width));
+    margin-left: var(--side-nav-open-width);
+  }
+
+  .info-overlay {
+    inset: 0;
+    transition: opacity 200ms ease, visibility 200ms, left 250ms ease;
+  }
+
+  .site-shell:has(.side-nav.is-open) .info-overlay {
+    left: var(--side-nav-open-width);
+  }
+
+  .main-nav {
+    right: auto;
+    left: calc(50% + var(--side-nav-width) / 2);
+    gap: 2px;
+    overflow: visible;
+    transform: translateX(-50%) translateY(calc((1 - var(--nav-reveal, 0)) * -16px));
+  }
+
+  .site-shell:has(.side-nav.is-open) .main-nav {
+    right: 0;
+    left: var(--side-nav-open-width);
+    justify-content: center;
+    transform: translateY(calc((1 - var(--nav-reveal, 0)) * -16px));
+  }
+
+  .main-nav__number {
+    height: 100%;
+    padding: 0 12px;
+  }
+
+  .main-nav__item {
+    width: auto;
+    height: 36px;
+    flex: 0 0 auto;
+    grid-template-columns: max-content 0;
+    font-size: var(--type-nav);
+    line-height: 1;
+    transition:
+      width 250ms ease,
+      flex-basis 250ms ease,
+      color 250ms ease,
+      background-color 250ms ease;
+  }
+
+  .main-nav__item .main-nav__label {
+    width: 0;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .main-nav__item:is(.is-active, :hover, :focus-visible) {
+    width: max-content;
+    flex-basis: auto;
+    grid-template-columns: max-content 1fr;
+  }
+
+  .main-nav__item:is(.is-active, :hover, :focus-visible) .main-nav__label {
+    width: auto;
+    padding-right: 14px;
+    opacity: 1;
+  }
+
+  .side-nav__logo-image,
+  .side-nav:not(.is-open) .side-nav__logo:is(:hover, :focus-visible)::before {
+    width: 44px;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 776 / 452;
+  }
+}
+
+.sound-control {
+  order: 2;
+}
+
+/* Navigation typography role. Size comes from tokens.css. */
+.main-nav__item,
+.side-nav__link {
+  font-size: var(--type-nav);
+}
+
+/* Safari-safe logo hover: JavaScript swaps the DM/BM artwork itself. */
+.side-nav__logo::before,
+.side-nav:not(.is-open) .side-nav__logo::before {
+  display: none;
+  content: none;
+}
+
+.side-nav__logo:is(:hover, :focus-visible) .side-nav__logo-image {
+  opacity: 1 !important;
+  filter: none;
+}

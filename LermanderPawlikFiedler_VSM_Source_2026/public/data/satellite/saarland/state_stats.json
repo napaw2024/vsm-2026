@@ -1,0 +1,13 @@
+{
+  "state": "Saarland",
+  "state_area_km2": 2571.0,
+  "unfragmented_forest_km2": 0.0,
+  "unfragmented_forest_pct": 0.0,
+  "unfragmented_patch_count": 0,
+  "unfragmented_threshold_km2": 50.0,
+  "meff_km2": 2.55,
+  "mesh_side_km": 1.597,
+  "mesh_side_m": 1597.0,
+  "mesh_diagonal_km": 2.258,
+  "walking_time_min": 27.1
+}

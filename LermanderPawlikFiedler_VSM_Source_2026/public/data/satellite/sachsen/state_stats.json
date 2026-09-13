@@ -1,0 +1,13 @@
+{
+  "state": "Sachsen",
+  "state_area_km2": 18448.9,
+  "unfragmented_forest_km2": 729.71,
+  "unfragmented_forest_pct": 3.96,
+  "unfragmented_patch_count": 13,
+  "unfragmented_threshold_km2": 50.0,
+  "meff_km2": 4.55,
+  "mesh_side_km": 2.133,
+  "mesh_side_m": 2133.0,
+  "mesh_diagonal_km": 3.017,
+  "walking_time_min": 36.2
+}

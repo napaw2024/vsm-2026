@@ -1,0 +1,13 @@
+{
+  "state": "Thüringen",
+  "state_area_km2": 16201.0,
+  "unfragmented_forest_km2": 730.75,
+  "unfragmented_forest_pct": 4.51,
+  "unfragmented_patch_count": 11,
+  "unfragmented_threshold_km2": 50.0,
+  "meff_km2": 7.38,
+  "mesh_side_km": 2.717,
+  "mesh_side_m": 2717.0,
+  "mesh_diagonal_km": 3.842,
+  "walking_time_min": 46.1
+}

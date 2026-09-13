@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "forest_patches",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3035" } },
+"xy_coordinate_resolution": 0.1,
+"features": [
+
+]
+}

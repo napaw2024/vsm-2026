@@ -1,0 +1,13 @@
+{
+  "state": "Nordrhein-Westfalen",
+  "state_area_km2": 34115.7,
+  "unfragmented_forest_km2": 594.92,
+  "unfragmented_forest_pct": 1.74,
+  "unfragmented_patch_count": 11,
+  "unfragmented_threshold_km2": 50.0,
+  "meff_km2": 3.49,
+  "mesh_side_km": 1.868,
+  "mesh_side_m": 1868.0,
+  "mesh_diagonal_km": 2.642,
+  "walking_time_min": 31.7
+}

@@ -1,0 +1,13 @@
+{
+  "state": "Berlin",
+  "state_area_km2": 891.9,
+  "unfragmented_forest_km2": 0.0,
+  "unfragmented_forest_pct": 0.0,
+  "unfragmented_patch_count": 0,
+  "unfragmented_threshold_km2": 50.0,
+  "meff_km2": 1.43,
+  "mesh_side_km": 1.196,
+  "mesh_side_m": 1196.0,
+  "mesh_diagonal_km": 1.691,
+  "walking_time_min": 20.3
+}

@@ -1,0 +1,125 @@
+@import './tokens.css';
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../assets/fonts/WorkSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../assets/fonts/WorkSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Flor DeRuina';
+  src: url('../assets/fonts/FlorDeRuina-Flor.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ruina DeRuina';
+  src: url('../assets/fonts/FlorDeRuina-Ruina.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Semilla DeRuina';
+  src: url('../assets/fonts/FlorDeRuina-Semilla.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Georgia Local';
+  src: url('../assets/fonts/Georgia.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  /* Explore is an intentional decision point in the story. Proximity snap
+     leaves normal story scrolling untouched, while its snap-stop prevents a
+     fast wheel/trackpad gesture from skipping straight across that screen
+     before the JavaScript interaction lock has had a chance to engage. */
+  scroll-snap-type: y proximity;
+  background: var(--color-media-background);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: var(--color-background);
+}
+
+/* The About/References/Sources overlay (see info-pages.js) covers the
+   viewport and scrolls internally - this stops the story underneath from
+   also scrolling while it's open. */
+body.has-info-overlay-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  color: var(--color-title);
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.site-shell {
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 300ms ease, background-color 300ms ease;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.media-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--color-grey-secondary);
+  background:
+    linear-gradient(135deg, transparent 49.8%, currentColor 50%, transparent 50.2%),
+    linear-gradient(45deg, transparent 49.8%, currentColor 50%, transparent 50.2%),
+    var(--color-layout-panel);
+  border: 1px solid var(--color-grey-primary);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

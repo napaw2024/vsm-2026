@@ -1,0 +1,135 @@
+:root,
+[data-theme='dark'] {
+  /* Font roles */
+  --font-ui: 'Work Sans', Arial, sans-serif;
+  --font-story: 'Georgia Local', Georgia, serif;
+  --font-brand-flor: 'Flor DeRuina', Georgia, serif;
+  --font-brand-ruina: 'Ruina DeRuina', Georgia, serif;
+  --font-brand-semilla: 'Semilla DeRuina', Georgia, serif;
+
+  /* Dark theme colours */
+  color-scheme: dark;
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-text: #f9f9f9;
+  --color-title: #fefefe;
+  --color-greyed-out: rgb(0 0 0 / 75%);
+  --color-mesh: #917dd2;
+  --color-map-outline: #605170;
+  --color-side-nav-text: #d7d2e7;
+  --color-side-nav-hover: #fefefe;
+  --color-nav-chosen: #c4b2fb;
+  --color-nav-surface: #2a2832;
+  --color-grey-primary: #3f3f3f;
+  --color-grey-secondary: #afafaf;
+  --color-overlay: rgb(255 255 255 / 80%);
+  --color-highlight: #c4b2fb;
+  --color-layout-panel: #121212;
+  --color-sidebar: #121212;
+  --color-text-navi: #fefefe;
+  --color-text-navi-chosen: #121212;
+  --color-side-nav-stroke: #191919;
+  --color-media-background: #000000;
+  --color-on-media: #ffffff;
+  --color-data-annotation: #605170;
+  --color-forest: #63973e;
+  --color-calibration-surface: rgb(248 248 248 / 94%);
+
+  /* Explore-the-data cards stay dark regardless of section theme */
+  --color-data-card-surface: #1e1b28;
+  --color-data-card-text: #fefefe;
+  --color-data-card-highlight-surface: #dcefce;
+  --color-data-card-highlight-text: #23431f;
+
+  /* Desktop layout */
+  --side-nav-width: 64px;
+  --side-nav-collapsed-width: 40px;
+  --side-nav-open-width: 56px;
+  --main-nav-item-width: 190px;
+  --main-nav-height: 46px;
+  --main-nav-gap: 12px;
+  --page-padding-inline: 100px;
+  --section-padding-top: 100px;
+  --layout-copy-column: 38.2%;
+  --layout-media-column: 61.8%;
+  --panel-padding-inline: 50px;
+  --panel-padding-top: 100px;
+  --panel-padding-bottom: 80px;
+  --intro-media-scale: 1.04;
+  --sequence-media-scale: 1.04;
+
+  /* Desktop typography */
+  --type-nav: 16px;
+  --type-centered: 24px;
+  --type-title: 24px;
+  --type-story: 20px;
+  --type-facts: 16px;
+  --type-map-label: 12px;
+
+  /* Desktop text rhythm */
+  --space-copy: 16px;
+  --space-title-copy: 24px;
+  --space-facts: 32px;
+}
+
+[data-theme='light'] {
+  /* Bright theme colours */
+  color-scheme: light;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-text: #0a0a0a;
+  --color-title: #000000;
+  --color-greyed-out: rgb(255 255 255 / 75%);
+  --color-mesh: #8069c7;
+  --color-map-outline: #726184;
+  --color-side-nav-text: #8b83a3;
+  --color-side-nav-hover: #121212;
+  --color-nav-chosen: #322e3f;
+  --color-nav-surface: #f0f0f0;
+  --color-highlight: #8069c7;
+  --color-layout-panel: #f8f8f8;
+  --color-sidebar: #f8f8f8;
+  --color-text-navi: #101010;
+  --color-text-navi-chosen: #fefefe;
+  --color-side-nav-stroke: #eaeaea;
+}
+
+@media (max-width: 1100px) {
+  :root,
+  [data-theme] {
+    /* Slightly crop full-screen media before the layout becomes a column. */
+    --page-padding-inline: 32px;
+    --section-padding-top: 120px;
+    --intro-media-scale: 1.08;
+    --sequence-media-scale: 1.08;
+  }
+}
+
+@media (max-width: 900px) {
+  :root,
+  [data-theme] {
+    /* Column/mobile typography and text rhythm */
+    --type-nav: 14px;
+    --type-centered: 20px;
+    --type-title: 20px;
+    --type-story: 16px;
+    --type-facts: 14px;
+    --type-map-label: 11px;
+    --space-title-copy: 20px;
+    --space-facts: 24px;
+    --panel-padding-inline: 16px;
+    --panel-padding-top: 12px;
+    --panel-padding-bottom: 48px;
+    --column-row-height: 50dvh;
+  }
+}
+
+@media (max-width: 700px) {
+  :root,
+  [data-theme] {
+    /* Portrait artwork treatment. Geometry remains in sections.css. */
+    --intro-media-scale: 1.8;
+    --sequence-media-scale: 1.12;
+    --panel-padding-bottom: 32px;
+  }
+}

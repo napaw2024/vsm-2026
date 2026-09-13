@@ -1,0 +1,2894 @@
+.story-section {
+  --scrolly-copy-gap: var(--space-copy);
+  --scrolly-title-gap: var(--space-title-copy);
+  --scrolly-facts-gap: var(--space-facts);
+  --scrolly-facts-shift: 40px;
+  --scrolly-transition: 120ms linear;
+  --scrolly-media-transition: 180ms linear;
+}
+
+.mobile-only-break {
+  display: none;
+}
+
+.story-section {
+  position: relative;
+  min-height: 100svh;
+  margin-left: var(--side-nav-width);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.section-copy--center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(760px, calc(100% - 64px));
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.intro-section {
+  overflow: hidden;
+  background: var(--color-media-background);
+}
+
+.intro-section__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-section__video {
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(var(--intro-media-scale));
+  transform-origin: center;
+}
+
+.intro-section .scroll-arrow {
+  z-index: 2;
+}
+
+.intro-section__heading {
+  position: absolute;
+  top: auto;
+  bottom: 100px;
+  left: 50%;
+  z-index: 2;
+  width: min(620px, calc(100% - 64px));
+  color: var(--color-on-media);
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity 500ms ease, transform 500ms ease;
+  pointer-events: none;
+}
+
+.intro-section__heading.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.intro-section__heading h1 {
+  margin: 0;
+  color: var(--color-highlight);
+  font-family: var(--font-brand-ruina);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.intro-section__heading p {
+  margin: 12px 0 0;
+  color: var(--color-highlight);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.scroll-arrow.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.sequence-section {
+  min-height: 550svh;
+}
+
+.sequence-section__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.sequence-section__media,
+.sequence-section__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sequence-section__media {
+  background: var(--color-media-background);
+}
+
+.sequence-section__frame {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: var(--frame-layer, 0);
+  opacity: 0;
+  object-fit: cover;
+  object-position: center;
+  transform: translate(-50%, -50%) scale(var(--sequence-media-scale));
+  transition: opacity 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+.sequence-section__frame.is-revealed {
+  opacity: 1;
+}
+
+.sequence-section__transition {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(var(--sequence-media-scale));
+  transform-origin: center;
+  transition: opacity 220ms linear;
+  will-change: opacity;
+}
+
+.sequence-section__transition-placeholder {
+  z-index: 11;
+}
+
+.sequence-story-card {
+  position: absolute;
+  top: var(--section-padding-top);
+  left: var(--page-padding-inline);
+  z-index: 21;
+  width: min(var(--layout-copy-column), 620px);
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.sequence-story-card h2 {
+  margin: 0 0 var(--scrolly-title-gap);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sequence-story-card > p:not(.eyebrow) {
+  margin: 0;
+  font-family: var(--font-story);
+  line-height: 1.35;
+}
+
+.sequence-story-card__facts {
+  margin: var(--scrolly-facts-gap) 0 0;
+  padding: 0;
+  color: var(--color-grey-secondary);
+  line-height: 1.6;
+  list-style: none;
+  opacity: 0;
+  transform: translateY(var(--scrolly-facts-shift));
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+}
+
+.sequence-section__frame.has-error {
+  display: none;
+}
+
+.sequence-section__texts {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+}
+
+.sequence-section__text {
+  position: absolute;
+  width: min(620px, calc(100% - 64px));
+  font-family: var(--font-story);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  will-change: opacity, transform;
+}
+
+.sequence-section__text h2,
+.sequence-section__text p {
+  font: inherit;
+  color: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.story-chapter-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  background: transparent;
+}
+
+.story-chapter-section--journey {
+  min-height: 650svh;
+}
+
+/* Individual Scrollama ranges for the visually stacked story cards. */
+.story-scroll-trigger {
+  position: absolute;
+  top: var(--story-trigger-start);
+  width: 1px;
+  height: var(--story-trigger-size);
+  pointer-events: none;
+}
+
+.story-shared-video {
+  position: fixed;
+  inset: 0 0 0 var(--side-nav-width);
+  z-index: 0;
+  width: calc(100% - var(--side-nav-width));
+  height: 100svh;
+  opacity: 0;
+  object-fit: cover;
+  object-position: center;
+  background: var(--color-media-background);
+  transform: scale(var(--sequence-media-scale));
+  transform-origin: center;
+  transition: opacity 180ms linear;
+  pointer-events: none;
+}
+
+.story-chapter-section__stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  width: 100%;
+  height: 100svh;
+  grid-template-columns: var(--layout-copy-column) var(--layout-media-column);
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.story-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+  align-self: stretch;
+  overflow-y: auto;
+  background: var(--color-layout-panel);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.story-chapter-section__panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-layout-panel);
+}
+
+.story-chapter-section--journey .story-card {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.story-card > .eyebrow,
+.story-card > h2,
+.story-card > p:not(.eyebrow) {
+  transform: translateY(var(--story-copy-offset, 100vh));
+  will-change: transform;
+}
+
+.story-card h2 {
+  margin: 0 0 var(--scrolly-title-gap);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.story-card > p:not(.eyebrow) {
+  margin: 0;
+  font-family: var(--font-story);
+  line-height: 1.35;
+}
+
+.story-card__facts {
+  margin: var(--scrolly-facts-gap) 0 0;
+  padding: 0;
+  color: var(--color-grey-secondary);
+  line-height: 1.6;
+  list-style: none;
+  opacity: var(--facts-reveal, 0);
+  transform: translateY(calc((1 - var(--facts-reveal, 0)) * var(--scrolly-facts-shift)));
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+}
+
+.story-chapter-section__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.story-chapter-section__media-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 180ms linear;
+}
+
+.story-chapter-section__media-item.is-active {
+  opacity: 1;
+}
+
+.story-chapter-section__shared-animation {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 180ms linear;
+  pointer-events: none;
+}
+
+.story-chapter-section__visual {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-outro {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.story-outro__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(var(--sequence-media-scale));
+  will-change: opacity;
+}
+
+.story-outro__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: min(760px, calc(100% - 64px));
+  margin: 0;
+  color: var(--color-on-media);
+  font-family: var(--font-story);
+  line-height: 1.35;
+  text-align: center;
+  translate: -50% -50%;
+  transform: translateY(100vh);
+  will-change: transform;
+}
+
+.story-outro .story-outro__arrow {
+  z-index: 2;
+  width: min(240px, calc(100% - 64px));
+  color: var(--color-on-media);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.interlude-section {
+  overflow: hidden;
+  background: var(--color-media-background);
+  color: var(--color-on-media);
+}
+
+.interlude-section__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(var(--sequence-media-scale));
+  transform-origin: center;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.interlude-section .section-copy {
+  z-index: 1;
+  opacity: 1;
+  will-change: opacity, transform;
+}
+
+.interlude-section__text {
+  margin: 0;
+  font-family: var(--font-story);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.explore-data-section {
+  min-height: 100svh;
+  background: var(--color-background);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.route-section {
+  min-height: 180svh;
+  padding: 0;
+}
+
+.route-section__stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: var(--layout-copy-column) var(--layout-media-column);
+  width: 100%;
+  height: 100svh;
+  gap: 0;
+}
+
+.route-section__panel,
+.route-section__map {
+  position: relative;
+  height: 100svh;
+}
+
+.route-section__panel {
+  overflow: hidden;
+  padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+  background: var(--color-sidebar);
+}
+
+.route-section__content {
+  position: relative;
+}
+
+.route-section__title,
+.route-section__body {
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.route-section__title {
+  opacity: 0;
+}
+
+.route-section__body {
+  margin-top: var(--scrolly-title-gap);
+  transform: translateY(100vh);
+}
+
+.route-section__content h2 {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.route-section__mark {
+  display: inline-block;
+  width: 33.6px;
+  height: 33.6px;
+  margin-right: var(--panel-padding-inline);
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.route-section__marks {
+  display: inline-flex;
+  margin-right: var(--panel-padding-inline);
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.route-section__marks .route-section__mark {
+  margin-right: 0;
+}
+
+.route-section__copy {
+  margin: 0;
+  font-family: var(--font-story);
+  line-height: 1.35;
+}
+
+.route-section__map {
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+.route-section__map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2.6);
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity var(--scrolly-media-transition), transform var(--scrolly-media-transition);
+  will-change: opacity, transform;
+}
+
+.route-section__barriers {
+  position: absolute;
+  right: 48px;
+  bottom: 48px;
+  z-index: 2;
+  width: min(320px, calc(100% - 96px));
+  color: var(--color-text);
+  opacity: 0;
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.barrier-stat__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.barrier-stat__label strong {
+  font-weight: 600;
+}
+
+.barrier-stat__bar {
+  width: calc(var(--barrier-value) * 1%);
+  height: 10px;
+  margin-bottom: 12px;
+  background: currentColor;
+}
+
+.barrier-stat__symbol {
+  display: block;
+  width: calc(var(--barrier-value) * 1%);
+  height: 52px;
+  object-fit: cover;
+}
+
+.map-section {
+  position: relative;
+  min-height: 500svh;
+  padding: 0;
+}
+
+.map-section__triggers {
+  position: relative;
+  z-index: -1;
+  margin-top: -100svh;
+  pointer-events: none;
+}
+
+.map-scroll-step {
+  height: 140svh;
+}
+
+.map-scroll-step--hold {
+  height: 100svh;
+}
+
+.map-section__stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: var(--layout-copy-column) var(--layout-media-column);
+  width: 100%;
+  height: 100svh;
+  gap: 0;
+}
+
+.map-section__copy {
+  position: relative;
+  z-index: 2;
+  height: 100svh;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+  background: var(--color-sidebar);
+}
+
+.map-section__step {
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__step--intro {
+  transform: translateY(100vh);
+}
+
+.map-section__step--barriers {
+  position: absolute;
+  top: var(--section-padding-top);
+  right: var(--page-padding-inline);
+  left: var(--page-padding-inline);
+  transform: translateY(100vh);
+}
+
+.map-section__step--detail {
+  margin-top: 1.35em;
+  transform: translateY(100vh);
+}
+
+.map-section__step--pseudo,
+.map-section__step--stub-roads,
+.map-section__step--pseudo-facts {
+  position: absolute;
+  top: var(--section-padding-top);
+  right: var(--page-padding-inline);
+  left: var(--page-padding-inline);
+  transform: translateY(100vh);
+}
+
+.map-section__step--mesh {
+  position: absolute;
+  top: var(--section-padding-top);
+  right: var(--page-padding-inline);
+  left: var(--page-padding-inline);
+  transform: translateY(100vh);
+}
+
+.map-section__title-row.map-section__mesh-title {
+  opacity: 1;
+}
+
+.map-section__mesh-title + .map-section__reveal-text {
+  margin-top: var(--scrolly-title-gap);
+}
+
+.map-section__mesh-fact {
+  margin: var(--scrolly-facts-gap) 0 0;
+  opacity: 0;
+  transform: translateY(var(--scrolly-facts-shift));
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-animation {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  margin-top: var(--scrolly-copy-gap);
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(var(--scrolly-facts-shift));
+  transition: opacity var(--scrolly-media-transition), transform var(--scrolly-media-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-animation + .map-section__mesh-fact {
+  margin-top: var(--scrolly-facts-gap);
+}
+
+.map-section__mesh-intro-copy {
+  transition: opacity var(--scrolly-transition);
+  will-change: opacity;
+}
+
+.map-section__mesh-route-copy {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: var(--scrolly-copy-gap) 0 0;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-bayern-copy {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: var(--scrolly-copy-gap) 0 0;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-thueringen-copy {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: var(--scrolly-copy-gap) 0 0;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-diagonal-step {
+  position: absolute;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-diagonal-step .map-section__reveal-text {
+  margin: var(--scrolly-copy-gap) 0 0;
+}
+
+.map-section__diagonal-animation {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  margin-top: var(--scrolly-copy-gap);
+  object-fit: contain;
+}
+
+.map-section__mesh-diagonal-step .map-section__facts {
+  margin-top: var(--scrolly-facts-gap);
+}
+
+.map-section__mesh-bayern-time,
+.map-section__mesh-thueringen-time {
+  margin: var(--scrolly-copy-gap) 0 0;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity var(--scrolly-transition), transform var(--scrolly-transition);
+  will-change: opacity, transform;
+}
+
+.map-section__mesh-bayern-time {
+  margin-top: var(--scrolly-facts-gap);
+}
+
+.map-section__marks {
+  display: flex;
+  margin: 0;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.map-section__marks .map-section__mark {
+  margin-right: 0;
+}
+
+.map-section__stub-copy {
+  margin: var(--scrolly-copy-gap) 0 0;
+  padding: 0;
+  will-change: opacity, transform;
+}
+
+.map-section__step--pseudo .map-section__pseudo-facts-copy {
+  margin: var(--scrolly-facts-gap) 0 0;
+  will-change: opacity, transform;
+}
+
+.map-section__step--pseudo-facts {
+  top: 62%;
+}
+
+.map-section__pseudo-title + .map-section__reveal-text {
+  margin-top: var(--scrolly-title-gap);
+}
+
+.map-section__title-row.map-section__pseudo-title {
+  opacity: 1;
+}
+
+.map-section__title-row {
+  display: block;
+  opacity: 0;
+  transition: opacity var(--scrolly-transition);
+  will-change: opacity;
+}
+
+.map-section__title-row h2 {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: start;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+}
+
+.map-section__mark {
+  display: inline-grid;
+  width: 33.6px;
+  height: 33.6px;
+  aspect-ratio: 1;
+  margin-right: 0;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.map-section__mark.has-error {
+  display: none;
+}
+
+.map-section__intro {
+  margin-top: 0;
+}
+
+.map-section__intro-copy {
+  display: grid;
+  margin-top: var(--scrolly-title-gap);
+  gap: var(--scrolly-copy-gap);
+  font-family: var(--font-story);
+  line-height: 1.35;
+}
+
+.map-section__intro-copy p,
+.map-section__reveal-text {
+  margin-bottom: 0;
+}
+
+.map-section__intro-copy p {
+  margin-top: 0;
+}
+
+.map-section__reveal-text {
+  font-family: var(--font-story);
+  line-height: 1.35;
+}
+
+.map-section__facts {
+  margin: var(--scrolly-facts-gap) 0 0;
+  color: var(--color-data-annotation);
+  line-height: 1.6;
+}
+
+.map-section__step--pseudo-facts .map-section__facts {
+  margin-top: 0;
+}
+
+.map-section__media {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-background);
+  border: 0;
+}
+
+.map-section__media.is-ranking,
+.map-section__media.is-ranking .forest-map,
+.map-section__media.is-ranking .forest-map__svg {
+  overflow: visible;
+}
+
+.map-section__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.map-section__image--detail {
+  opacity: 0;
+}
+
+.map-section__image--intro,
+.map-section__image--detail {
+  transition: opacity 180ms linear;
+  will-change: opacity;
+}
+
+.forest-map {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  overflow: hidden;
+  background: var(--color-background);
+  transition: opacity var(--scrolly-media-transition);
+  --large-forest-reveal: 0;
+  --forest-zoom-detail: 0;
+  --barrier-reveal: 0;
+  --forest-stage-reveal: 0;
+  --pseudorelief-reveal: 0;
+  --mesh-reveal: 0;
+  --ranking-reveal: 0;
+}
+
+.forest-map__layer--barriers {
+  opacity: var(--barrier-reveal);
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__barriers {
+  fill: var(--color-data-annotation);
+  fill-opacity: 0.9;
+  stroke: var(--color-data-annotation);
+  stroke-width: 0.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.forest-map__barrier-raster {
+  image-rendering: auto;
+}
+
+/* Proportional summary of the barrier types encountered on the route. */
+.barrier-breakdown {
+  position: absolute;
+  right: clamp(16px, 2.5vw, 40px);
+  bottom: clamp(16px, 3vw, 48px);
+  left: clamp(16px, 2.5vw, 40px);
+  z-index: 5;
+  display: flex;
+  height: clamp(76px, 12vh, 116px);
+  overflow: hidden;
+  opacity: 0;
+  color: #fff;
+  font: 500 clamp(13px, 1.25vw, 18px) / 1.35 "Work Sans", Arial, sans-serif;
+  transition: opacity 180ms linear;
+}
+
+.barrier-breakdown__item {
+  display: flex;
+  flex: var(--barrier-share) 1 0;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  /* Narrow proportional segments need nearly all of their width for the count. */
+  padding: 12px clamp(4px, calc(var(--barrier-share) * 0.45px), 18px);
+  overflow: hidden;
+  text-align: left;
+  white-space: nowrap;
+  outline: none;
+  transition: flex 220ms ease;
+}
+
+.barrier-breakdown__item + .barrier-breakdown__item {
+  border-left: 1px solid rgb(255 255 255 / 0.45);
+}
+
+.barrier-breakdown__item span,
+.barrier-breakdown__item strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barrier-breakdown__item strong {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.barrier-breakdown:has(.barrier-breakdown__item:hover) .barrier-breakdown__item,
+.barrier-breakdown:has(.barrier-breakdown__item:focus-visible) .barrier-breakdown__item {
+  flex-grow: 0.55;
+}
+
+.barrier-breakdown__item:hover,
+.barrier-breakdown__item:focus-visible {
+  flex-grow: 4 !important;
+}
+
+.barrier-breakdown__item--streets { background: #000; }
+.barrier-breakdown__item--railways { background: #1db1b9; }
+.barrier-breakdown__item--settlements { background: #d19eaa; }
+.barrier-breakdown__item--airports { background: #e0d9c6; color: #161616; }
+
+.forest-map__status {
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  color: var(--color-text);
+  font: 500 14px/1.4 'Work Sans', Arial, sans-serif;
+}
+
+.forest-map__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 100ms linear;
+  will-change: transform;
+  shape-rendering: geometricPrecision;
+  opacity: calc(1 - var(--pseudorelief-reveal) * 0.5);
+  transition: transform 100ms linear, opacity 180ms linear;
+}
+
+.pseudorelief-model {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: var(--pseudorelief-reveal);
+  pointer-events: none;
+  transition: opacity 180ms linear;
+  will-change: opacity;
+}
+
+.pseudorelief-annotation {
+  position: absolute;
+  z-index: 4;
+  bottom: 8%;
+  display: grid;
+  max-width: 230px;
+  gap: 4px;
+  color: var(--color-data-annotation);
+  font-family: var(--font-ui);
+  font-size: var(--type-facts);
+  line-height: 1.35;
+  pointer-events: none;
+  transition: opacity 180ms linear, transform 180ms linear;
+}
+
+.pseudorelief-annotation strong {
+  font-weight: 600;
+}
+
+.pseudorelief-annotation--low {
+  left: 8%;
+  opacity: calc(var(--pseudo-low-label, 0) * (1 - var(--pseudorelief-exit, 0)));
+  transform: translateY(calc((1 - var(--pseudo-low-label, 0)) * 16px));
+}
+
+.pseudorelief-annotation--high {
+  bottom: calc(8% + 96px);
+  left: 8%;
+  text-align: left;
+  opacity: calc(var(--pseudo-high-label, 0) * (1 - var(--pseudorelief-exit, 0)));
+  transform: translateY(calc((1 - var(--pseudo-high-label, 0)) * 16px));
+}
+
+.pseudorelief-model canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pseudorelief-callout {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: calc(var(--pseudo-callout-reveal, 0) * (1 - var(--pseudorelief-exit, 0)));
+  pointer-events: none;
+  transition: opacity 180ms linear;
+}
+
+.pseudorelief-callout__label {
+  position: absolute;
+  top: calc(10% + 20px);
+  left: 8%;
+  z-index: 6;
+  color: var(--color-data-annotation);
+  font-family: var(--font-ui);
+  font-size: var(--type-facts);
+  font-weight: 600;
+  line-height: 1;
+  opacity: calc(var(--pseudo-callout-reveal, 0) * (1 - var(--pseudorelief-exit, 0)));
+  pointer-events: none;
+  transition: opacity 180ms linear;
+}
+
+.pseudorelief-callout path {
+  fill: none;
+  stroke: var(--color-data-annotation);
+  stroke-width: 0.22;
+  vector-effect: non-scaling-stroke;
+}
+
+.pseudorelief-callout circle {
+  fill: var(--color-data-annotation);
+}
+
+.pseudorelief-calibration {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 8;
+  display: grid;
+  width: min(280px, calc(100% - 40px));
+  gap: 8px;
+  padding: 14px;
+  color: var(--color-data-annotation);
+  background: var(--color-calibration-surface);
+  border: 1px solid var(--color-data-annotation);
+  font: 14px/1.35 'Work Sans', Arial, sans-serif;
+}
+
+.pseudorelief-calibration[hidden] {
+  display: none;
+}
+
+.pseudorelief-calibration button {
+  justify-self: start;
+  padding: 6px 10px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  font: inherit;
+  cursor: pointer;
+}
+
+body:has(.pseudorelief-calibration:not([hidden])) .pseudorelief-model {
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+.forest-map__layer--all {
+  opacity: calc(var(--forest-stage-reveal) * (1 - var(--large-forest-reveal)) * (1 - var(--ranking-reveal)));
+}
+
+/* The route is visible over the nationwide all-forests view only. */
+.forest-map__layer--route {
+  opacity: calc(var(--forest-stage-reveal) * (1 - var(--large-forest-reveal)) * (1 - var(--ranking-reveal)));
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__route-paw {
+  color: var(--color-highlight);
+  opacity: 0;
+  animation: forest-route-step 4.8s ease-in-out infinite both;
+  animation-delay: calc(var(--paw-index) * 180ms);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.forest-map__route-paw-pad,
+.forest-map__route-paw-toe {
+  fill: currentColor;
+  stroke: var(--color-media-background);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes forest-route-step {
+  0%, 8% { opacity: 0; }
+  14%, 72% { opacity: 1; }
+  88%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forest-map__route-paw {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.forest-map__layer--large {
+  opacity: calc(var(--forest-stage-reveal) * var(--large-forest-reveal) * (1 - var(--forest-zoom-detail)) * (1 - var(--ranking-reveal)));
+}
+
+.forest-map__layer--zoom-detail {
+  opacity: calc(var(--forest-stage-reveal) * var(--large-forest-reveal) * var(--forest-zoom-detail) * (1 - var(--ranking-reveal)));
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__layer--mesh {
+  opacity: calc(var(--mesh-reveal) * (1 - var(--ranking-reveal)));
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__layer--mesh-labels {
+  color: var(--color-map-outline);
+  opacity: calc(var(--mesh-reveal) * (1 - var(--ranking-reveal)));
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__layer--states {
+  opacity: calc(var(--forest-stage-reveal) * (1 - var(--ranking-reveal)));
+  transition: opacity var(--scrolly-media-transition);
+}
+
+.forest-map__layer--ranking {
+  opacity: var(--ranking-reveal);
+  pointer-events: none;
+  transition: opacity var(--scrolly-media-transition);
+  will-change: opacity;
+}
+
+.forest-map__ranking-state {
+  stroke: var(--color-map-outline);
+  stroke-width: 1;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+  will-change: transform;
+}
+
+.forest-map__ranking-label {
+  display: none;
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--type-map-label);
+  font-weight: 400;
+  opacity: var(--ranking-travel);
+}
+
+.forest-map__ranking-labels-html {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.forest-map__ranking-label-html {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--type-map-label);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-100%, 0) rotate(-55deg);
+  transform-origin: right top;
+  will-change: left, top, opacity;
+}
+
+.forest-map__ranking-label-html strong {
+  color: var(--color-mesh);
+  font-weight: 600;
+}
+
+.forest-map__ranking-value {
+  fill: var(--color-mesh);
+  font-weight: 600;
+}
+
+.forest-map__mesh-legend {
+  position: absolute;
+  top: clamp(64px, 10vh, 110px);
+  left: 20px;
+  z-index: 4;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--type-map-label);
+  line-height: 1.2;
+  opacity: var(--mesh-reveal);
+  pointer-events: none;
+  transition: opacity var(--scrolly-media-transition);
+}
+
+.forest-map__mesh-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.forest-map__mesh-legend-title,
+.forest-map__mesh-legend-scale {
+  display: flex;
+  align-items: center;
+}
+
+.forest-map__mesh-legend-title {
+  gap: 8px;
+  font-weight: 600;
+}
+
+.forest-map__mesh-legend-title img {
+  width: auto;
+  height: 1.2em;
+  object-fit: contain;
+}
+
+.forest-map__mesh-legend-scale {
+  gap: 10px;
+  opacity: var(--ranking-reveal);
+  white-space: nowrap;
+  transition: opacity var(--scrolly-media-transition);
+}
+
+.forest-map__mesh-legend-arrow {
+  font-size: 1.4em;
+  line-height: 0.8;
+}
+
+.forest-map__mesh-leader {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.forest-map__mesh-dot {
+  fill: currentColor;
+}
+
+.forest-map__mesh-label-text {
+  display: none;
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.forest-map__mesh-labels-html {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: visible;
+  opacity: calc(var(--mesh-reveal) * (1 - var(--ranking-reveal)));
+  pointer-events: none;
+  transition: opacity var(--scrolly-media-transition);
+}
+
+.forest-map__mesh-label-html {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--type-map-label);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  will-change: left, top, opacity;
+}
+
+.forest-map__mesh-label-html--left {
+  text-align: right;
+  transform: translate(-100%, -50%);
+}
+
+.forest-map__mesh-label-html--right {
+  text-align: left;
+  transform: translate(0, -50%);
+}
+
+.forest-map__mesh-label-html strong {
+  color: var(--color-mesh);
+  font-weight: 600;
+}
+
+.forest-map__mesh-label {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--scrolly-media-transition);
+}
+
+.forest-map__mesh-label.is-visible {
+  opacity: 1;
+}
+
+.forest-map:has(.forest-map__mesh-state[data-state="Baden-Württemberg"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Baden-Württemberg"],
+.forest-map:has(.forest-map__mesh-state[data-state="Bayern"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Bayern"],
+.forest-map:has(.forest-map__mesh-state[data-state="Berlin"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Berlin"],
+.forest-map:has(.forest-map__mesh-state[data-state="Brandenburg"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Brandenburg"],
+.forest-map:has(.forest-map__mesh-state[data-state="Bremen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Bremen"],
+.forest-map:has(.forest-map__mesh-state[data-state="Hamburg"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Hamburg"],
+.forest-map:has(.forest-map__mesh-state[data-state="Hessen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Hessen"],
+.forest-map:has(.forest-map__mesh-state[data-state="Mecklenburg-Vorpommern"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Mecklenburg-Vorpommern"],
+.forest-map:has(.forest-map__mesh-state[data-state="Niedersachsen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Niedersachsen"],
+.forest-map:has(.forest-map__mesh-state[data-state="Nordrhein-Westfalen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Nordrhein-Westfalen"],
+.forest-map:has(.forest-map__mesh-state[data-state="Rheinland-Pfalz"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Rheinland-Pfalz"],
+.forest-map:has(.forest-map__mesh-state[data-state="Saarland"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Saarland"],
+.forest-map:has(.forest-map__mesh-state[data-state="Sachsen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Sachsen"],
+.forest-map:has(.forest-map__mesh-state[data-state="Sachsen-Anhalt"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Sachsen-Anhalt"],
+.forest-map:has(.forest-map__mesh-state[data-state="Schleswig-Holstein"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Schleswig-Holstein"],
+.forest-map:has(.forest-map__mesh-state[data-state="Thüringen"]:is(:hover, :focus)) .forest-map__mesh-label[data-state="Thüringen"] {
+  opacity: 1;
+}
+
+.forest-map__mesh-label-value {
+  fill: var(--color-mesh);
+  font-weight: 600;
+}
+
+.forest-map__mesh-line {
+  fill: none;
+  stroke: var(--color-mesh);
+  stroke-width: 0.7;
+  vector-effect: non-scaling-stroke;
+}
+
+.forest-map__mesh-state {
+  stroke: none;
+  pointer-events: all;
+  cursor: pointer;
+  outline: none;
+}
+
+.forest-map__layer--all,
+.forest-map__layer--large,
+.forest-map__layer--zoom-detail {
+  transition: opacity 180ms linear;
+  will-change: opacity;
+}
+
+.forest-map.is-large-forest-only .forest-map__layer--all {
+  display: none;
+}
+
+.forest-map__forests {
+  fill: var(--color-forest);
+  stroke: none;
+}
+
+.forest-map__forests--large {
+  fill: var(--color-forest);
+}
+
+.forest-map__state {
+  fill: none;
+  stroke: var(--color-data-annotation);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 1;
+}
+
+.end-sequence-section {
+  min-height: 650svh;
+  overflow: visible;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.end-sequence-section__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+.end-sequence-section__media-stack,
+.end-sequence-section__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.end-sequence-section__media-stack {
+  z-index: 1;
+}
+
+.end-sequence-section__media {
+  z-index: var(--end-layer, 0);
+  opacity: 0;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(var(--sequence-media-scale));
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+picture.end-sequence-section__media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.end-sequence-section__media.is-revealed {
+  opacity: 1;
+}
+
+.end-sequence-section__texts {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.end-sequence-section__text {
+  position: absolute;
+  width: min(620px, calc(100% - 64px));
+  margin: 0;
+  font-family: var(--font-story);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  will-change: transform;
+}
+
+.end-sequence-section__text--final {
+  width: min(620px, calc(100% - 64px));
+  color: var(--color-data-annotation);
+  font-family: var(--font-brand-semilla);
+  line-height: 1.3;
+}
+
+/* Column layout: media above, text panel below. */
+@media (max-width: 900px) {
+  .mobile-only-break {
+    display: initial;
+  }
+
+  .story-section {
+    margin-left: 0;
+  }
+
+  .story-shared-video {
+    width: 100%;
+  }
+
+  .story-chapter-section__stage,
+  .map-section__stage,
+  .route-section__stage {
+    grid-template-columns: 1fr;
+  }
+
+  .story-chapter-section__panel,
+  .route-section__panel,
+  .map-section__copy {
+    grid-row: 2;
+  }
+
+  .story-chapter-section__media,
+  .route-section__map,
+  .map-section__media {
+    grid-row: 1;
+  }
+
+  .route-section__panel,
+  .route-section__map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .map-section__copy {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: var(--color-sidebar);
+  }
+
+  .map-section__media {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .map-section__step--pseudo,
+  .map-section__step--stub-roads,
+  .map-section__step--pseudo-facts {
+    top: 56px;
+  }
+
+  .map-section__step--pseudo-facts {
+    top: 65%;
+  }
+
+  .map-section__step--stub-roads {
+    top: 44%;
+    bottom: auto;
+  }
+
+  .story-chapter-section__media {
+    position: relative;
+    top: auto;
+    height: 100%;
+    grid-row: 1;
+  }
+
+  .story-chapter-section__stage,
+  .route-section__stage,
+  .map-section__stage {
+    height: 100dvh;
+    grid-template-rows: var(--column-row-height) var(--column-row-height);
+  }
+
+  .story-chapter-section__panel,
+  .story-chapter-section__media,
+  .route-section__panel,
+  .route-section__map,
+  .map-section__copy,
+  .map-section__media {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .story-card,
+  .route-section__panel,
+  .map-section__copy {
+    padding-top: var(--panel-padding-top);
+    padding-right: var(--panel-padding-inline);
+    padding-bottom: var(--panel-padding-bottom);
+    padding-left: var(--panel-padding-inline);
+  }
+
+  .map-section__step--pseudo,
+  .map-section__step--barriers,
+  .map-section__step--stub-roads,
+  .map-section__step--pseudo-facts,
+  .map-section__step--mesh {
+    right: var(--panel-padding-inline);
+    left: var(--panel-padding-inline);
+  }
+
+  .map-section__step--pseudo,
+  .map-section__step--barriers,
+  .map-section__step--mesh {
+    top: var(--panel-padding-top);
+  }
+
+  .pseudorelief-callout__label {
+    top: calc(10% + 40px);
+  }
+
+  .map-section__mesh-animation,
+  .map-section__diagonal-animation {
+    width: 60% !important;
+    max-width: 60% !important;
+    max-height: 108px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Title icons track the title type size and theme colour. */
+.route-section__mark,
+.map-section__mark,
+.route-section__marks .route-section__mark,
+.map-section__marks .map-section__mark {
+  width: auto !important;
+  height: 1em !important;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+[data-theme='dark'] :is(.route-section__mark, .map-section__mark) {
+  filter: brightness(0) saturate(100%) invert(98%);
+}
+
+[data-theme='light'] :is(.route-section__mark, .map-section__mark) {
+  filter: brightness(0) saturate(100%);
+}
+
+/* Phone-only media rotation and tighter story placement. */
+@media (max-width: 700px) {
+  .sequence-section__stage,
+  .end-sequence-section__stage {
+    height: 100dvh;
+  }
+
+  /* Turn landscape sequence artwork into the phone's portrait viewport. */
+  .sequence-section__frame,
+  .sequence-section__transition-image,
+  .story-outro__image,
+  .end-sequence-section__media {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: 100dvh;
+    height: 100vw;
+    transform: translate(-50%, -50%) rotate(90deg)
+      scale(var(--sequence-media-scale));
+  }
+
+  .end-sequence-section__text {
+    width: min(620px, calc(100% - 64px));
+  }
+
+  .route-section__map,
+  .map-section__media,
+  .story-chapter-section__media {
+    grid-row: 1;
+  }
+
+  .route-section__panel,
+  .map-section__copy,
+  .story-card {
+    grid-row: 2;
+  }
+
+  .map-section__step--stub-roads {
+    top: 36px;
+  }
+
+  .map-section__step--pseudo-facts {
+    top: 55%;
+  }
+
+  .story-chapter-section__stage {
+    padding: 0;
+    gap: 0;
+  }
+
+  .story-card {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--color-layout-panel);
+  }
+
+  .story-chapter-section__media {
+    width: 100%;
+    height: 100%;
+    grid-row: 1;
+  }
+
+  .story-chapter-section__panel {
+    grid-row: 2;
+  }
+}
+
+/* Desktop split layout. */
+@media (min-width: 901px) {
+  .story-shared-video {
+    right: 0;
+    left: calc(38.2vw + 39.552px);
+    width: auto;
+  }
+
+  .story-chapter-section__stage,
+  .route-section__stage,
+  .map-section__stage {
+    grid-template-columns: var(--layout-copy-column) var(--layout-media-column);
+    grid-template-rows: 1fr;
+  }
+
+  .story-chapter-section__panel,
+  .story-chapter-section__media,
+  .route-section__panel,
+  .route-section__map,
+  .map-section__copy,
+  .map-section__media {
+    grid-row: auto;
+  }
+
+  .map-section__step--pseudo,
+  .map-section__step--barriers,
+  .map-section__step--stub-roads,
+  .map-section__step--pseudo-facts,
+  .map-section__step--mesh {
+    right: var(--panel-padding-inline);
+    left: var(--panel-padding-inline);
+  }
+
+  .pseudorelief-annotation--low {
+    bottom: calc(8% - 14px);
+  }
+
+  .pseudorelief-annotation--high {
+    bottom: calc(8% + 176px);
+  }
+}
+
+/* Component typography roles. Sizes come from tokens.css. */
+.sequence-section__text,
+.story-outro__text,
+.interlude-section__text,
+.end-sequence-section__text,
+.end-sequence-section__text--final {
+  font-size: var(--type-centered);
+}
+
+.sequence-story-card > p:not(.eyebrow),
+.story-card > p:not(.eyebrow),
+.route-section__copy,
+.map-section__intro-copy,
+.map-section__reveal-text {
+  font-size: var(--type-story);
+}
+
+.sequence-story-card__facts,
+.story-card__facts,
+.barrier-stat__label,
+.map-section__facts {
+  font-size: var(--type-facts);
+}
+
+.sequence-story-card h2,
+.story-card h2,
+.route-section__content h2,
+.map-section__title-row h2 {
+  font-size: var(--type-title);
+}
+
+.explore-data-section {
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* This is the element wireScrollLock() actually observes; without its own
+   explicit height it reports its full (content-driven) bounding box no
+   matter how the ancestor section clips it, so the intersection ratio used
+   to detect "fully on screen" could never reach the lock threshold. */
+.explore-data {
+  position: relative;
+  height: 100%;
+}
+
+/* Explore Data uses square controls throughout. */
+.explore-data button {
+  border-radius: 0;
+}
+
+.explore-data__stage {
+  display: grid;
+  grid-template-columns: var(--layout-copy-column) var(--layout-media-column);
+  height: 100%;
+}
+
+.explore-data__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-copy);
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+  background: var(--color-sidebar);
+}
+
+.explore-data__title-row h2 {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: start;
+  margin: 0;
+  color: var(--color-title);
+  font-family: var(--font-ui);
+  font-size: var(--type-title);
+  font-weight: 600;
+}
+
+.explore-data__marks {
+  display: flex;
+  gap: 8px;
+}
+
+.explore-data__mark {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.explore-data__intro-copy {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-story);
+  font-size: var(--type-story);
+  line-height: 1.35;
+}
+
+/* --font-story's custom "Georgia Local" @font-face only registers a single
+   400/normal face (see global.css), so bold and/or italic text under it has
+   no real face to match and falls back to weak faux-bold/faux-italic
+   synthesis. Bold/italic runs here skip straight to system Georgia instead,
+   which does have real bold and italic faces on essentially every platform
+   that has Georgia installed at all. */
+.explore-data__intro-copy strong,
+.explore-data__intro-copy em {
+  font-family: Georgia, serif;
+}
+
+/* introCopy (content.js) carries both phrasings inline so the same string
+   works whether it's set on initial render or on every detail/ranking view
+   swap (switchExploreDataView) - only one of the two ever shows, picked by
+   viewport width rather than duplicating the whole sentence per breakpoint. */
+.explore-data__intro-mobile {
+  display: none;
+}
+
+.explore-data__overview-frame {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: var(--space-copy);
+}
+
+.explore-data__overview {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: zoom-in;
+  touch-action: none;
+}
+
+.explore-data__overview.is-zoomed {
+  cursor: grab;
+}
+
+.explore-data__overview.is-panning {
+  cursor: grabbing;
+}
+
+.explore-data__overview-zoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+}
+
+.explore-data__overview-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  /* Safety bound for cached/slow images before their true-scale inline
+     dimensions are applied. Never let intrinsic bitmap pixels fill or
+     overflow the entire overview panel. */
+  max-width: 55%;
+  max-height: 55%;
+  transform: translate(-50%, -50%);
+}
+
+.explore-data__overview-square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgb(196 178 251 / 35%);
+  border: 2px solid var(--color-highlight);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.explore-data__overview-caption {
+  /* The caption belongs visually to the satellite view; pull it closer to
+     the image than the general copy-column rhythm. */
+  margin: 0 0 -8px;
+  color: var(--color-data-annotation);
+  font-family: var(--font-ui);
+  font-size: var(--type-facts);
+  line-height: 1.5;
+}
+
+.explore-data__overview-nav,
+.explore-data__state-nav {
+  justify-content: center;
+  gap: 12px;
+}
+
+.explore-data__overview-nav {
+  display: flex;
+}
+
+/* Desktop-only stand-in for .explore-data__overview-nav - see the min-width
+   companion to the mobile block below, which swaps which of the two shows. */
+.explore-data__state-nav {
+  display: none;
+}
+
+.explore-data__overview-prev,
+.explore-data__overview-next,
+.explore-data__state-prev,
+.explore-data__state-next {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  color: var(--color-grey-primary);
+  background: var(--color-nav-surface);
+  border: 0;
+  border-radius: 6px;
+  place-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.explore-data__overview-prev:hover,
+.explore-data__overview-next:hover,
+.explore-data__state-prev:hover,
+.explore-data__state-next:hover {
+  color: var(--color-title);
+  background: var(--color-nav-chosen);
+}
+
+.explore-data__overview-prev img,
+.explore-data__overview-next img,
+.explore-data__state-prev img,
+.explore-data__state-next img {
+  width: 18px;
+  height: auto;
+  display: block;
+  transition: filter 150ms ease;
+}
+
+/* The arrow icons are external SVG files loaded via <img>, so they don't
+   inherit the button's CSS `color` (currentColor doesn't cross that
+   boundary) - forcing them to pure white on hover needs a filter instead. */
+.explore-data__overview-prev:hover img,
+.explore-data__overview-next:hover img,
+.explore-data__state-prev:hover img,
+.explore-data__state-next:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.explore-data__continue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 28px;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--color-title);
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: var(--type-facts);
+  font-weight: 600;
+  align-self: flex-start;
+  outline: none;
+}
+
+.explore-data__continue span[aria-hidden] {
+  transition: transform 150ms ease;
+}
+
+.explore-data__continue:hover span[aria-hidden] {
+  transform: translateY(3px);
+}
+
+.explore-data__media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+  background: var(--color-background);
+}
+
+.explore-data__header {
+  display: flex;
+  align-items: stretch;
+}
+
+.explore-data__header,
+.explore-data__cards,
+.explore-data__map-wrap,
+.explore-data__overview,
+.explore-data__overview-caption,
+.explore-data__overview-nav,
+.explore-data__state-nav,
+.explore-data__ranking-wrap {
+  transition: opacity 220ms ease;
+}
+
+.explore-data__header-state {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+  padding: 12px 18px;
+  color: var(--color-data-card-text);
+  background: var(--color-data-card-surface);
+  border-left: 1px solid var(--color-background);
+  font-family: var(--font-ui);
+  font-size: var(--type-story);
+  font-weight: 600;
+}
+
+.explore-data__header-state .explore-data__state-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.explore-data__header-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  padding: 12px 18px;
+  color: var(--color-text-navi);
+  background: var(--color-nav-surface);
+  border: 0;
+  font-family: var(--font-ui);
+  font-size: var(--type-story);
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.explore-data__header-back-arrow {
+  transition: transform 150ms ease;
+}
+
+.explore-data__header-back:is(:hover, :focus-visible) {
+  color: var(--color-text-navi-chosen);
+  background: var(--color-nav-chosen);
+  font-weight: 600;
+}
+
+.explore-data__header-back:is(:hover, :focus-visible) .explore-data__header-back-arrow {
+  transform: translateX(-3px);
+}
+
+.explore-data__cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-map-outline);
+}
+
+.explore-data__card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  color: var(--color-data-card-text);
+  background: var(--color-data-card-surface);
+  font-family: var(--font-ui);
+}
+
+.explore-data__card-label {
+  opacity: 0.75;
+  font-size: var(--type-map-label);
+  line-height: 1.3;
+}
+
+.explore-data__info-icon {
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  color: currentColor;
+  vertical-align: -3px;
+  cursor: help;
+  outline: none;
+}
+
+.explore-data__info-icon-svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.explore-data__tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  z-index: 5;
+  width: max-content;
+  max-width: 220px;
+  margin: 0;
+  padding: 8px;
+  background: var(--color-grey-primary);
+  color: #fff;
+  font-family: Verdana, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: opacity 150ms ease;
+  pointer-events: none;
+}
+
+.explore-data__info-icon:hover .explore-data__tooltip,
+.explore-data__info-icon:focus-visible .explore-data__tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.explore-data__card-value {
+  font-size: var(--type-story);
+  font-weight: 600;
+}
+
+.explore-data__card--highlight {
+  color: var(--color-data-card-highlight-text);
+  background: var(--color-data-card-highlight-surface);
+}
+
+.explore-data__legend {
+  display: grid;
+  grid-template-areas:
+    "mesh-title patch"
+    "mesh-scale mesh-scale";
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+  justify-content: start;
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--type-map-label);
+}
+
+.explore-data__legend-mesh {
+  display: contents;
+}
+
+.explore-data__legend-title,
+.explore-data__legend-scale {
+  display: flex;
+  align-items: center;
+}
+
+.explore-data__legend-title {
+  grid-area: mesh-title;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.explore-data__legend-scale {
+  grid-area: mesh-scale;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+/* The high-to-low scale explains the comparison between all states. In a
+   selected state's detail view only the mesh and forest-patch keys remain. */
+.explore-data:not(.is-all-states) .explore-data__legend-scale {
+  display: none;
+}
+
+.explore-data__legend > .explore-data__legend-item {
+  grid-area: patch;
+}
+
+.explore-data__legend-arrow {
+  font-size: 1.4em;
+  line-height: 0.8;
+}
+
+.explore-data__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explore-data__legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.explore-data__legend-icon {
+  width: auto;
+  height: 1.2em;
+  object-fit: contain;
+}
+
+.explore-data__legend-swatch--patch {
+  background: var(--color-forest);
+}
+
+.explore-data__map-wrap {
+  position: relative;
+  aspect-ratio: 760 / 480;
+  overflow: hidden;
+  background: var(--color-background);
+  cursor: zoom-in;
+  touch-action: none;
+}
+
+.explore-data__map-wrap.is-zoomed {
+  cursor: grab;
+}
+
+.explore-data__map-wrap.is-panning {
+  cursor: grabbing;
+}
+
+.explore-data__map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.explore-data__boundary {
+  stroke: var(--color-map-outline);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.explore-data__mesh-line {
+  fill: none;
+  stroke: var(--color-mesh);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.explore-data__patch {
+  stroke: var(--color-background);
+  stroke-width: 0.75;
+  fill: var(--color-forest);
+  opacity: 0.88;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 150ms linear, stroke 150ms linear;
+}
+
+.explore-data__patch:hover,
+.explore-data__patch:focus-visible {
+  stroke: var(--color-highlight);
+  stroke-width: 2;
+  opacity: 1;
+  outline: none;
+}
+
+.explore-data__patch.is-selected {
+  stroke: var(--color-highlight);
+  stroke-width: 2.5;
+  opacity: 1;
+}
+
+.explore-data__status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  place-items: center;
+}
+
+.explore-data__ranking-wrap {
+  display: none;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 16px;
+  min-width: 0;
+  margin-inline: calc(var(--panel-padding-inline) * -1);
+}
+
+.explore-data__ranking-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  cursor: grab;
+  outline: none;
+}
+
+.explore-data__ranking-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-data__ranking-scroll.is-dragging {
+  scroll-behavior: auto;
+  cursor: grabbing;
+}
+
+.explore-data__ranking-svg {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+.explore-data__ranking-states {
+  transform: translateY(-19px);
+}
+
+.explore-data__ranking-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.explore-data__ranking-prev,
+.explore-data__ranking-next {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  color: var(--color-grey-primary);
+  background: var(--color-nav-surface);
+  border: 0;
+  border-radius: 6px;
+  font-size: var(--type-story);
+  place-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.explore-data__ranking-prev:hover,
+.explore-data__ranking-next:hover {
+  color: var(--color-title);
+  background: var(--color-nav-chosen);
+}
+
+.explore-data__ranking-prev img,
+.explore-data__ranking-next img {
+  width: 20px;
+  height: auto;
+  display: block;
+  transition: filter 150ms ease;
+}
+
+.explore-data__ranking-prev:hover img,
+.explore-data__ranking-next:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.explore-data__ranking-geometry {
+  transform: translate(var(--ranking-dx), var(--ranking-dy)) scale(1);
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transition: transform 180ms ease;
+}
+
+.explore-data__ranking-item {
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.explore-data__ranking-item:focus,
+.explore-data__ranking-state:focus,
+.explore-data__ranking-label:focus,
+.explore-data__patch:focus {
+  outline: none;
+}
+
+.explore-data__ranking-card {
+  fill: transparent;
+  transition: fill 150ms ease;
+}
+
+.explore-data__ranking-item:is(:hover, :focus-visible) .explore-data__ranking-card {
+  fill: var(--color-nav-chosen);
+}
+
+.explore-data__ranking-state {
+  stroke: var(--color-map-outline);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  outline: none;
+  transition: stroke 150ms ease;
+}
+
+.explore-data__ranking-state-base {
+  fill: #ffffff;
+  pointer-events: none;
+}
+
+.explore-data__ranking-patch {
+  fill: var(--color-forest);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.explore-data__ranking-state.is-active {
+  stroke: var(--color-highlight);
+  stroke-width: 2;
+}
+
+.explore-data__ranking-mesh-line {
+  fill: none;
+  stroke: var(--color-mesh);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.explore-data__ranking-label {
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  text-anchor: middle;
+  cursor: pointer;
+  outline: none;
+}
+
+.explore-data__ranking-item:is(:hover, :focus-visible) .explore-data__ranking-label {
+  fill: var(--color-text-navi-chosen);
+  font-weight: 600;
+}
+
+.explore-data__ranking-item:is(:hover, :focus-visible) .explore-data__ranking-label-value {
+  fill: var(--color-text-navi-chosen);
+}
+
+.explore-data__ranking-label-value {
+  fill: var(--color-mesh);
+  font-weight: 600;
+}
+
+.explore-data__ranking-leader {
+  stroke: var(--color-map-outline);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.explore-data.is-all-states .explore-data__header,
+.explore-data.is-all-states .explore-data__cards,
+.explore-data.is-all-states .explore-data__map-wrap,
+.explore-data.is-all-states .explore-data__overview,
+.explore-data.is-all-states .explore-data__overview-caption,
+.explore-data.is-all-states .explore-data__overview-nav,
+.explore-data.is-all-states .explore-data__state-nav {
+  display: none;
+}
+
+.explore-data.is-all-states .explore-data__ranking-wrap {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .explore-data-section,
+  .explore-data {
+    height: 100dvh;
+  }
+
+  /* The detail view's media panel (header/cards only - see .explore-data__
+     map-wrap and .explore-data__legend below) is far shorter than the
+     ranking view's, so it takes just the height its content needs instead
+     of a fixed half-screen split. That leaves the copy panel - title, intro
+     text and the satellite photo - the rest of the screen, so the photo,
+     its prev/next buttons and "Finish the Story" all fit without scrolling. */
+  .explore-data__stage {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  /* The ranking view's copy panel only holds a couple of lines of intro
+     text (no cards/map), so it can give the media panel more room for the
+     ranked states - matching them closer to their size on the mesh-size
+     step, which isn't split into two stacked panels at all. */
+  .explore-data.is-all-states .explore-data__stage {
+    grid-template-rows: 60dvh 40dvh;
+  }
+
+  .explore-data__media {
+    grid-row: 1;
+    height: auto;
+    gap: 12px;
+    padding: var(--section-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+    /* Nav bar is ~46px tall on mobile - 24px below that keeps both the
+       detail header (back button + state tag) and the ranking legend
+       close under it instead of the much taller default gap above. */
+    padding-top: 70px;
+  }
+
+  .explore-data__copy {
+    grid-row: 2;
+    height: 100%;
+    gap: 10px;
+    padding: var(--panel-padding-top) var(--panel-padding-inline) var(--panel-padding-bottom);
+    /* Sound control button is a fixed 40px circle sitting 20px above the
+       viewport bottom - 32px above *that* keeps "Finish the Story" clear
+       of it instead of overlapping. */
+    padding-bottom: 92px;
+  }
+
+  .explore-data__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .explore-data__card {
+    padding: 10px 12px;
+  }
+
+  /* The state-wide mesh map is the detail view's tallest element by far and
+     duplicates what the cards above already say in numbers - dropping it
+     (and the legend describing its colours) is what gives the copy panel
+     room to grow below. Both stay untouched on desktop. */
+  .explore-data__map-wrap {
+    display: none;
+  }
+
+  .explore-data:not(.is-all-states) .explore-data__legend {
+    display: none;
+  }
+
+  .explore-data__intro-desktop {
+    display: none;
+  }
+
+  .explore-data__intro-mobile {
+    display: inline;
+  }
+
+  /* No longer pinned to a 1:1 square - it grows to fill whatever room the
+     now-taller copy panel leaves after the text above it, so the photo
+     itself reads bigger and prev/next/"Finish the Story" stay in view. The
+     true-to-scale sizing in explore-data.js already measures this box's
+     actual rendered size, so a taller box just means more empty space
+     around smaller patches, never any cropping. */
+  .explore-data__overview-frame {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: clamp(140px, 24dvh, 210px);
+  }
+
+  .explore-data__overview {
+    aspect-ratio: unset;
+    flex: 1 1 auto;
+    min-height: 0;
+    /* Scales with the viewport's own height rather than a fixed px floor,
+       so short/older phones give proportionally less room to the photo
+       instead of pushing the prev/next buttons and "Finish the Story"
+       further off-screen. */
+  }
+
+  /* On phones, flank the forest patch instead of spending a separate row
+     below it; desktop keeps the controls underneath. */
+  .explore-data__overview-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    padding-inline: 8px;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .explore-data__overview-prev,
+  .explore-data__overview-next {
+    pointer-events: auto;
+  }
+}
+
+/* Desktop-only companion to the mobile block above: the prev/next arrows
+   move from cycling this state's forest photos (in the copy panel, left
+   side) to cycling between states (below the state mesh-map, right side,
+   in ranked mesh-size order - see wireStateNav in explore-data.js). Mobile
+   keeps the forest-photo arrows in their original spot untouched. */
+@media (min-width: 901px) {
+  .explore-data__overview-nav {
+    display: flex;
+  }
+
+  .explore-data__state-nav {
+    display: flex;
+  }
+}
+
+/* Static content screens: About, References, Sources - reached via the side
+   navigation as their own full-screen overlay rather than by scrolling
+   through the main story (see info-pages.js). Content lives in content.js
+   (the "about", "references" and "sources" exports). */
+.info-overlay {
+  position: fixed;
+  inset: 0 0 0 var(--side-nav-width);
+  z-index: 90;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, visibility 200ms;
+}
+
+.info-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info-overlay__panel {
+  position: relative;
+  display: none;
+  min-height: 100%;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.info-overlay__panel.is-active {
+  display: block;
+}
+
+.info-overlay__close {
+  position: absolute;
+  top: 72px;
+  left: var(--page-padding-inline);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--type-nav);
+  font-weight: 600;
+}
+
+.info-overlay__close:is(:hover, :focus-visible) {
+  color: var(--color-highlight);
+}
+
+.info-overlay__close-arrow {
+  font-size: 1.1em;
+}
+
+@media (max-width: 900px) {
+  body.has-info-overlay-open .info-overlay {
+    left: var(--side-nav-open-width);
+  }
+
+  .info-overlay__close {
+    top: 52px;
+  }
+}
+
+.info-section {
+  /* 32px below the "Back to story" control (top: 72px + its own height). */
+  padding: 125px var(--page-padding-inline) 80px;
+}
+
+.info-section h2 {
+  margin: 0 0 var(--space-copy);
+  color: var(--color-title);
+  font-family: var(--font-ui);
+  font-size: var(--type-title);
+  font-weight: 600;
+}
+
+.info-section p {
+  margin: 0 0 var(--space-copy);
+  color: var(--color-text);
+  font-family: var(--font-story);
+  font-size: var(--type-story);
+  line-height: 1.5;
+}
+
+.info-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1200px;
+}
+
+.info-section__column h2:not(:first-child) {
+  margin-top: var(--space-facts);
+}
+
+.info-section__links {
+  margin: 0 0 var(--space-facts);
+  padding: 0;
+  list-style: none;
+}
+
+.info-section__links li {
+  margin-bottom: 8px;
+  font-family: var(--font-story);
+  font-size: var(--type-story);
+}
+
+.info-section__links a,
+.info-section__legal a {
+  text-decoration: underline;
+}
+
+.info-section__legal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-ui);
+  font-size: var(--type-nav);
+}
+
+.info-section__list {
+  max-width: 1200px;
+  column-count: 2;
+  column-gap: 64px;
+  margin: 0;
+  padding: 0;
+}
+
+.info-section__list li,
+.info-section__list p {
+  margin: 0 0 var(--space-facts);
+  break-inside: avoid;
+  color: var(--color-text);
+  font-family: var(--font-story);
+  font-size: var(--type-story);
+  line-height: 1.5;
+}
+
+ol.info-section__list {
+  padding-left: 1.4em;
+}
+
+.info-section__list a {
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.info-section__watermark {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  width: min(320px, calc(100% - 64px));
+  height: auto;
+  opacity: 0.35;
+  transform: translateX(-50%) rotate(180deg);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .info-section {
+    /* 32px below the "Back to story" control (top: 52px + its own height). */
+    padding-top: 102px;
+  }
+
+  .info-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-facts);
+  }
+
+  .info-section__list {
+    column-count: 1;
+  }
+}
